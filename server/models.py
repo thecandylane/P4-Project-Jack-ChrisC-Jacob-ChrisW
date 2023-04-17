@@ -39,8 +39,6 @@ class User(db.Model, SerializerMixin):
     teams = db.relationship('Team', secondary=user_team, back_populates='members')
     activities = db.relationship('Activity', backref='user', lazy=True)
 
-
-
 class Project(db.Model, SerializerMixin):
     __tablename__ = 'projects'
     
