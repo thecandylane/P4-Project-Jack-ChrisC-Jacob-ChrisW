@@ -12,11 +12,11 @@ from config import *
 
 
 # Association table for many-to-many relationships between users and projects
-# user_project = db.Table(
-#     'user_project',
-#     db.Column('user_id', db.Integer, db.ForeignKey('users.id')),
-#     db.Column('project_id', db.Integer, db.ForeignKey('projects.id'))
-# )
+user_project = db.Table(
+    'user_project',
+    db.Column('user_id', db.Integer, db.ForeignKey('users.id')),
+    db.Column('project_id', db.Integer, db.ForeignKey('projects.id'))
+)
 
 # Association table for many-to-many relationships between users and teams
 user_team = db.Table(
