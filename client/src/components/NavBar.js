@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="nav-logo">
-        <h1>Your App Name</h1>
+        <h1>Taskmaster</h1>
       </div>
       <div className="nav-links">
         <NavLink exact to="/" activeClassName="active-link">
