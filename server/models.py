@@ -12,11 +12,11 @@ from config import *
 
 
 # Association table for many-to-many relationships between users and projects
-user_project = db.Table(
-    'user_project',
-    db.Column('user_id', db.Integer, db.ForeignKey('users.id')),
-    db.Column('project_id', db.Integer, db.ForeignKey('projects.id'))
-)
+# user_project = db.Table(
+#     'user_project',
+#     db.Column('user_id', db.Integer, db.ForeignKey('users.id')),
+#     db.Column('project_id', db.Integer, db.ForeignKey('projects.id'))
+# )
 
 # Association table for many-to-many relationships between users and teams
 user_team = db.Table(
@@ -38,6 +38,20 @@ class User(db.Model):
     tasks = db.relationship('Task', backref='assignee', lazy=True)
     teams = db.relationship('Team', secondary=user_team, back_populates='members')
     activities = db.relationship('Activity', backref='user', lazy=True)
+
+class UserProject(db.Model):
+    __tablename__ = 'userprojects'
+    id = db.Column(db.Integer, primary_key=True)
+
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    project_id = (db.Integer, db.ForeignKey('projects.id'))
+
+class UserTeam(db.Model):
+    __tablename__ = 'userteams'
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    team_id = db.Column(db.Integer, db.ForeignKey('teams.id'))
+    
 
 class Project(db.Model):
     __tablename__ = 'projects'
