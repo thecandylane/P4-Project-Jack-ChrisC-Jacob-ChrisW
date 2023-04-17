@@ -19,7 +19,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 //   );
 // };
 
-function Login(){
+function Login({setUser, getUserTasks}){
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
 
@@ -39,7 +39,9 @@ function Login(){
       .then(r => r.json())
       .then(data => {
         const user = data.find((user) => user.username === username && user.password === password)
-        console.log(user)
+        // setUser(user)
+        // console.log(user)
+        getUserTasks(user)
       })
   }
 
