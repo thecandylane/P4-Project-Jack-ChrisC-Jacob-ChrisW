@@ -10,14 +10,20 @@ import Profile from "./Profile";
 
 function App() {
 
-  const [user, setUser] = useState("")
   const [login, setLogin] = useState(false)
+  // const [user, setUser] = useState()
+  const [userTasks, setUserTasks] = useState()
+
+  function getUserTasks(user) {
+    console.log(user)
+  }
 
   return (
     <div className="App">
       <Router>
         <Navbar/>
-          <Route path="/login" component={Login } /> 
+          {/* <Route path="/login" component={Login } getUserTasks={getUserTasks} />  */}
+          <Route path="/login" render={() => <Login getUserTasks={getUserTasks} />} /> 
           <Route exact path="/home" component={Dashboard } />
           <Route exact path="/projects" component={ProjectList} />
           <Route exact path="/tasks" component={TaskList} />
