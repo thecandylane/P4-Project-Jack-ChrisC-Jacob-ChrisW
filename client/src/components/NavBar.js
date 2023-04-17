@@ -20,6 +20,9 @@ const Navbar = () => {
         <NavLink to="/profile" activeClassName="active-link">
           Profile
         </NavLink>
+        <NavLink to="/login" activeClassName="active-link">
+          Login
+        </NavLink>
       </div>
     </nav>
   );
