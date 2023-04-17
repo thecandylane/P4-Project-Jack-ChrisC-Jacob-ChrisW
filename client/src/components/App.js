@@ -4,17 +4,25 @@ import './App.css';
 import Dashboard from './Dashboard';
 import Navbar from "./NavBar";
 import LoginButton from "./Login";
+import ProjectList from "./ProjectList";
+import TaskList from "./TaskList";
+import Profile from "./Profile";
 
 function App() {
+
+  const [user, setUser] = useState("")
+  const [login, setLogin] = useState(false)
+
   return (
     <div className="App">
       <Router>
         <Navbar/>
-        <Switch>
-          <Route path="/" element={<LoginButton />} /> 
-          <Route exact path="/home" element={<Dashboard />} />
+          <Route path="/" component={LoginButton } /> 
+          <Route exact path="/home" component={Dashboard } />
+          <Route exact path="/projects" component={ProjectList} />
+          <Route exact path="/tasks" component={TaskList} />
+          <Route exact path="/profile" component={Profile} />
           {/* Add more routes for other pages/components as needed */}
-        </Switch>
       </Router>
     </div>
   );
