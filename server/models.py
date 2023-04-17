@@ -39,7 +39,19 @@ class User(db.Model, SerializerMixin):
     teams = db.relationship('Team', secondary=user_team, back_populates='members')
     activities = db.relationship('Activity', backref='user', lazy=True)
 
+# class UserProject(db.Model, SerializerMixin):
+#     __tablename__ = 'userprojects'
+#     id = db.Column(db.Integer, primary_key=True)
 
+#     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+#     project_id = (db.Integer, db.ForeignKey('projects.id'))
+
+# class UserTeam(db.Model, SerializerMixin):
+#     __tablename__ = 'userteams'
+#     id = db.Column(db.Integer, primary_key=True)
+#     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+#     team_id = db.Column(db.Integer, db.ForeignKey('teams.id'))
+    
 
 class Project(db.Model, SerializerMixin):
     __tablename__ = 'projects'
