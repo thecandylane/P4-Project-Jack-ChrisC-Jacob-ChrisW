@@ -39,6 +39,18 @@ class User(db.Model, SerializerMixin):
     teams = db.relationship('Team', secondary=user_team, back_populates='members')
     activities = db.relationship('Activity', backref='user', lazy=True)
 
+    @validates('email')
+    def validate_email(self, key, address):
+        if '@' not in address:
+            raise ValueError("Must provide a valid email address")
+        return address
+    
+    @validates('password')
+    def validate_password(self, key, pw):
+        if len(pw) < 8:
+            raise ValueError("Password must be 8 characters or longer")
+        return pw
+
 class Project(db.Model, SerializerMixin):
     __tablename__ = 'projects'
     
