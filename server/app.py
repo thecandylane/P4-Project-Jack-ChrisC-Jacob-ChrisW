@@ -28,6 +28,7 @@ def index():
 class Users(Resource):
     def get(self):
         users = User.query.all()
+        print(users)
         users_dict_list = [user.to_dict() for user in users]
 
         response = make_response(

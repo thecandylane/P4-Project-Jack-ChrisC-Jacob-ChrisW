@@ -25,7 +25,7 @@ user_team = db.Table(
     db.Column('team_id', db.Integer, db.ForeignKey('teams.id'))
 )
 
-class User(db.Model):
+class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
     
     id = db.Column(db.Integer, primary_key=True)
@@ -39,7 +39,9 @@ class User(db.Model):
     teams = db.relationship('Team', secondary=user_team, back_populates='members')
     activities = db.relationship('Activity', backref='user', lazy=True)
 
-class Project(db.Model):
+
+
+class Project(db.Model, SerializerMixin):
     __tablename__ = 'projects'
     
     id = db.Column(db.Integer, primary_key=True)
@@ -50,7 +52,7 @@ class Project(db.Model):
     tasks = db.relationship('Task', backref='project', lazy=True)
     activities = db.relationship('Activity', backref='project', lazy=True)
 
-class Task(db.Model):
+class Task(db.Model, SerializerMixin):
     __tablename__ = 'tasks'
     
     id = db.Column(db.Integer, primary_key=True)
@@ -63,7 +65,7 @@ class Task(db.Model):
     assignee_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=True)
     project_id = db.Column(db.Integer, db.ForeignKey('projects.id'), nullable=False)
 
-class Team(db.Model):
+class Team(db.Model, SerializerMixin):
     __tablename__ = 'teams'
     
     id = db.Column(db.Integer, primary_key=True)
@@ -71,7 +73,7 @@ class Team(db.Model):
 
     members = db.relationship('User', secondary=user_team, back_populates='teams')
 
-class Activity(db.Model):
+class Activity(db.Model, SerializerMixin):
     __tablename__ = 'activities'
     
     id = db.Column(db.Integer, primary_key=True)

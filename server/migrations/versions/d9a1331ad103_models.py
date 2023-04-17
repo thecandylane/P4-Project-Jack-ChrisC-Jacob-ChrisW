@@ -1,8 +1,8 @@
-"""upgraded
+"""models
 
-Revision ID: 99b24a3f3c05
+Revision ID: d9a1331ad103
 Revises: 
-Create Date: 2023-04-17 12:57:22.324409
+Create Date: 2023-04-17 14:45:29.458804
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '99b24a3f3c05'
+revision = 'd9a1331ad103'
 down_revision = None
 branch_labels = None
 depends_on = None
