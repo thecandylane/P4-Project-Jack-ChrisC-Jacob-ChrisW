@@ -8,7 +8,7 @@ const Navbar = () => {
         <h1>Taskmaster</h1>
       </div>
       <div className="nav-links">
-        <NavLink exact to="/" activeClassName="active-link">
+        <NavLink exact to="/home" activeClassName="active-link">
           Home
         </NavLink>
         <NavLink to="/projects" activeClassName="active-link">
