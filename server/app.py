@@ -214,6 +214,56 @@ class TasksById(Resource):
         db.session.commit()
 api.add_resource(TasksById, '/tasks/<int:id>')
 
+class Teams(Resource):
+    def get(self):
+        teams = Team.query.all()
+        teams_dict_list = [team.to_dict() for team in teams]
+
+        response = make_response(
+            teams_dict_list,
+            200
+        )
+        return response
+    def post(self):
+        data = request.get_json()
+        try:
+            teams = Teams(
+                name = data['name'],
+            )
+            db.session.add(teams)
+            db.session.commit()
+        except Exception as e:
+            return make_response({
+                "errors": [e.__str__()]
+            }, 422)
+        return make_response(teams.to_dict(),201)
+    
+api.add_resource(Teams, '/teams')
+
+    
+    
+
+class TeamById(Resource):
+    def get(self, id):
+        t = Team.query.filter_by(id = id).first()
+        if not t:
+            return make_response({
+                "error": "Team not found"
+            }, 404)
+        return make_response(t.to_dict(), 200)
+    
+    def delete(self, id):
+        team = Team.query.filter_by(id = id).first()
+        if not team:
+            return make_response({
+                "error": "Task not found"
+            }, 404)
+        db.session.delete(team)
+        db.session.commit()
+    
+api.add_resource(TeamById, '/teams/<int:id>')
+
+
     
 
 
