@@ -5,11 +5,13 @@
 # Remote library imports
 from flask import request, Flask, make_response, jsonify, request
 from flask_restful import Resource, Api
+from sqlalchemy.exc import IntegrityError
 from flask_migrate import Migrate
 
 
+
 # Local imports
-from config import app, db, api
+from config import app, api
 from models import db, User, Project, Task, Team, Activity
 
 # Views go here!
@@ -41,6 +43,7 @@ class Users(Resource):
         try:
             users = User(
                 username = data['username'],
+                admin = data['admin'],
                 email = data['email'],
                 password = data ['password']
             )
