@@ -42,6 +42,7 @@ class Users(Resource):
         try:
             users = User(
                 username = data['username'],
+                admin = data['admin'],
                 email = data['email'],
                 password = data ['password']
             )
