@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Dashboard from './Dashboard';
 import Navbar from "./NavBar";
-import LoginButton from "./Login";
+import Login from "./Login";
 import ProjectList from "./ProjectList";
 import TaskList from "./TaskList";
 import Profile from "./Profile";
@@ -17,7 +17,7 @@ function App() {
     <div className="App">
       <Router>
         <Navbar/>
-          <Route path="/" component={LoginButton } /> 
+          <Route path="/login" component={Login } /> 
           <Route exact path="/home" component={Dashboard } />
           <Route exact path="/projects" component={ProjectList} />
           <Route exact path="/tasks" component={TaskList} />
