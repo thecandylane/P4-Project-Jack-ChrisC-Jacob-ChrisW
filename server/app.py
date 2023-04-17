@@ -3,7 +3,7 @@
 # Standard library imports
 
 # Remote library imports
-from flask import request, Flask, make_response, jsonify, request
+from flask import request, Flask, make_response, jsonify
 from flask_restful import Resource, Api
 from sqlalchemy.exc import IntegrityError
 from flask_migrate import Migrate
@@ -30,6 +30,7 @@ def index():
 class Users(Resource):
     def get(self):
         users = User.query.all()
+        print(users)
         users_dict_list = [user.to_dict() for user in users]
 
         response = make_response(
@@ -128,7 +129,7 @@ class ProjectsById(Resource):
             return make_response({
                 "error": "Project not found"
             }, 404)
-        return make_response(u.to_dict(), 200)
+        return make_response(p.to_dict(), 200)
     
     def patch(self, id):
         p = User.query.filter_by(id = id).first()
