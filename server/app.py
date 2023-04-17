@@ -125,7 +125,7 @@ class ProjectsById(Resource):
             return make_response({
                 "error": "Project not found"
             }, 404)
-        return make_response(u.to_dict(), 200)
+        return make_response(p.to_dict(), 200)
     
     def patch(self, id):
         p = User.query.filter_by(id = id).first()
