@@ -33,6 +33,26 @@ class User(db.Model, SerializerMixin):
     # serialize rules
     serialize_rules = ('-created_at', '-updated_at', '-user_teams', '-user_projects')
 
+    # validations
+    @validates('username')
+    def validate_username(self, key, user):
+       if user in [user.username for user in User.query.all()]:
+           raise ValueError("Username already taken")
+       return user
+
+
+    @validates('email')
+    def validate_email(self, key, address):
+       if '@' not in address:
+           raise ValueError("Must provide a valid email address")
+       return address
+  
+    @validates('password')
+    def validate_password(self, key, pw):
+       if len(pw) < 8:
+           raise ValueError("Password must be 8 characters or longer")
+       return pw
+
 class Team(db.Model, SerializerMixin):
     __tablename__ = 'teams'
     
