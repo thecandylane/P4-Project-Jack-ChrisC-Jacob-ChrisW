@@ -3,6 +3,7 @@
 # Standard library imports
 # from random import randint, choice as rc
 import random
+from datetime import datetime
 
 # Remote library imports
 from faker import Faker
@@ -44,7 +45,8 @@ def make_projects():
     for i in range(10):
         project = Project(
             name="Project " + str(i + 1),
-            description="Project description " + str(i + 1)
+            description="Project description " + str(i + 1),
+            team_id=random.randint(1, 5)
         )
         projects.append(project)
     db.session.add_all(projects)
@@ -59,7 +61,7 @@ def make_tasks():
             description="task description " + str(i + 1),
             status="task " + str(i + 1) + " status",
             priority=random.randint(1, 10),
-            due_date=fake.date,
+            due_date=datetime.strptime(fake.date(), '%Y-%m-%d').date(),
             user_id=random.randint(1, 20),
             project_id=random.randint(1, 10)
         )
@@ -73,7 +75,6 @@ def make_activities():
     for i in range(30):
         activity = Activity(
             action="activity " + str(i + 1),
-            timestamp=fake.date_time(),
             user_id=random.randint(1, 20)
         )
         activities.append(activity)
@@ -111,4 +112,11 @@ if __name__ == '__main__':
     with app.app_context():
         print("Starting seed...")
         make_users()
+        make_projects()
+        make_teams()
+        make_tasks()
+        make_activities()
+        make_user_teams()
+        make_user_projects()
+        print("Seeding finished")
         # Seed code goes here!

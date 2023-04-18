@@ -4,7 +4,7 @@ from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.orm import validates
 from sqlalchemy.ext.associationproxy import association_proxy
 
-# db = SQLAlchemy()
+db = SQLAlchemy()
 
 from config import *
 
@@ -64,7 +64,7 @@ class Team(db.Model, SerializerMixin):
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 
     # relationships
-    projects = db.relationship('Projects', backref='team')
+    projects = db.relationship('Project', backref='team')
     user_teams = db.relationship('UserTeam', backref='team')
     users = association_proxy('user_teams', 'user')
 
@@ -89,7 +89,7 @@ class Project(db.Model, SerializerMixin):
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
     
     # relationships
-    team_id = db.Column(db.Integer, db.ForeignKey('team.id'))
+    team_id = db.Column(db.Integer, db.ForeignKey('teams.id'))
     tasks = db.relationship('Task', backref='project')
     users_projects = db.relationship('UserProject', backref='project')
     users = association_proxy('user_projects', 'user')
