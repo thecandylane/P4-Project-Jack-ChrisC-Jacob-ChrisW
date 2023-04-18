@@ -27,6 +27,8 @@ user_team = db.Table(
 
 class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
+
+    serialize_rules = ('-projects', '-tasks', '-teams', '-activities')
     
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
@@ -39,26 +41,12 @@ class User(db.Model, SerializerMixin):
     teams = db.relationship('Team', secondary=user_team, back_populates='members')
     activities = db.relationship('Activity', backref='user', lazy=True)
 
-    @validates('username')
-    def validate_username(self, key, user):
-        if user in [user.username for user in User.query.all()]:
-            raise ValueError("Username already taken")
-        return user
-
-    @validates('email')
-    def validate_email(self, key, address):
-        if '@' not in address:
-            raise ValueError("Must provide a valid email address")
-        return address
     
-    @validates('password')
-    def validate_password(self, key, pw):
-        if len(pw) < 8:
-            raise ValueError("Password must be 8 characters or longer")
-        return pw
 
 class Project(db.Model, SerializerMixin):
     __tablename__ = 'projects'
+
+    serialize_rules = ('-members', '-tasks', '-activities')
     
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=True, nullable=False)
@@ -83,6 +71,8 @@ class Task(db.Model, SerializerMixin):
 
 class Team(db.Model, SerializerMixin):
     __tablename__ = 'teams'
+
+    serialize_rules = ('-members')
     
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=True, nullable=False)
