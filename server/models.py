@@ -113,7 +113,7 @@ class Task(db.Model, SerializerMixin):
     description = db.Column(db.String(255), nullable=True)
     status = db.Column(db.String(80), nullable=False)
     priority = db.Column(db.Integer, nullable=False)
-    due_date = db.Column(db.DateTime, nullable=True)
+    due_date = db.Column(db.Date, nullable=True)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
     
@@ -130,7 +130,7 @@ class Activity(db.Model, SerializerMixin):
     # attributes
     id = db.Column(db.Integer, primary_key=True)
     action = db.Column(db.String(80), nullable=False)
-    timestamp = db.Column(db.DateTime, nullable=False)
+    timestamp = db.Column(db.DateTime, server_default=db.func.now(), nullable=False)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
     
