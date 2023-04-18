@@ -39,6 +39,12 @@ class User(db.Model, SerializerMixin):
     teams = db.relationship('Team', secondary=user_team, back_populates='members')
     activities = db.relationship('Activity', backref='user', lazy=True)
 
+    @validates('username')
+    def validate_username(self, key, user):
+        if user in [user.username for user in User.query.all()]:
+            raise ValueError("Username already taken")
+        return user
+
     @validates('email')
     def validate_email(self, key, address):
         if '@' not in address:
