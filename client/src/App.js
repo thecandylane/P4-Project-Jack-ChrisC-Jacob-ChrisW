@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom';
 import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
@@ -56,8 +56,11 @@ const App = () => {
 
                     {/* Products */}
                     <Route path="/tasks" element={<Tasks />} />
+
+                    {/* <Route path="/tasks/params.id" element={<Tasks />} /> */}
                     <Route path="/users" element={<Users />} />
                     <Route path="/projects" element={<Projects />} />
+                    <Route path="/projects/id" element={<Projects />} />
 
                     {/* Apps */}
                     <Route path="/kanban" element={<Kanban />} />
