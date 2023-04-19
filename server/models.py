@@ -26,13 +26,14 @@ class User(db.Model, SerializerMixin):
     # relationships
     tasks = db.relationship('Task', backref='user')
     activities = db.relationship('Activity', backref='user')
-    user_teams = db.relationship('UserTeam', backref='user')
+    # user_teams = db.relationship('UserTeam', backref='user')
     user_projects = db.relationship('UserProject', backref='user')
-    teams = association_proxy('user_teams', 'team')
+    # teams = association_proxy('user_teams', 'team')
     projects = association_proxy('user_projects', 'project')
 
     # serialize rules
-    serialize_rules = ('-created_at', '-updated_at', '-user_teams', '-user_projects')
+    serialize_rules = ('-created_at', '-updated_at', '-user_projects', '-tasks', '-activities', '-projects')
+    # serialize_only = ('id', 'username', 'admin', 'email', 'password')
 
     # validations
     @validates('username')
@@ -55,29 +56,29 @@ class User(db.Model, SerializerMixin):
             raise ValueError("Password must be 8 characters or longer")
         return pw
 
-class Team(db.Model, SerializerMixin):
-    __tablename__ = 'teams'
+# class Team(db.Model, SerializerMixin):
+#     __tablename__ = 'teams'
     
-    # attributes
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(80), unique=True, nullable=False)
-    created_at = db.Column(db.DateTime, server_default=db.func.now())
-    updated_at = db.Column(db.DateTime, onupdate=db.func.now())
+#     # attributes
+#     id = db.Column(db.Integer, primary_key=True)
+#     name = db.Column(db.String(80), unique=True, nullable=False)
+#     created_at = db.Column(db.DateTime, server_default=db.func.now())
+#     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 
-    # relationships
-    projects = db.relationship('Project', backref='team')
-    user_teams = db.relationship('UserTeam', backref='team')
-    users = association_proxy('user_teams', 'user')
+#     # relationships
+#     projects = db.relationship('Project', backref='team')
+#     user_teams = db.relationship('UserTeam', backref='team')
+#     users = association_proxy('user_teams', 'user')
 
-    # serialize rules
-    serialize_rules = ('-created_at', '-updated_at', '-user_teams')
+#     # serialize rules
+#     serialize_rules = ('-created_at', '-updated_at', '-user_teams', '-projects')
 
-    # validations
-    @validates('name')
-    def validate_username(self, key, name):
-        if name in [teamname.name for teamname in Team.query.all()]:
-            raise ValueError("Team name already taken")
-        return name
+#     # validations
+#     @validates('name')
+#     def validate_username(self, key, name):
+#         if name in [teamname.name for teamname in Team.query.all()]:
+#             raise ValueError("Team name already taken")
+#         return name
 
 class Project(db.Model, SerializerMixin):
     __tablename__ = 'projects'
@@ -90,13 +91,14 @@ class Project(db.Model, SerializerMixin):
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
     
     # relationships
-    team_id = db.Column(db.Integer, db.ForeignKey('teams.id'))
+    # team_id = db.Column(db.Integer, db.ForeignKey('teams.id'))
     tasks = db.relationship('Task', backref='project')
-    users_projects = db.relationship('UserProject', backref='project')
+    user_projects = db.relationship('UserProject', backref='project')
     users = association_proxy('user_projects', 'user')
 
     # serialize rules
-    serialize_rules = ('-created_at', '-updated_at', '-user_projects')
+    # serialize_rules = ('-created_at', '-updated_at', '-user_projects', '-users', '-tasks')
+    serialize_only = ('id', 'name', 'description')
 
     # validations
     @validates('name')
@@ -123,7 +125,8 @@ class Task(db.Model, SerializerMixin):
     project_id = db.Column(db.Integer, db.ForeignKey('projects.id'))
 
     # serialize rules
-    serialize_rules = ('-created_at', '-updated_at')
+    # serialize_rules = ('-created_at', '-updated_at', '-user_id', '-project_id' ,'-user.tasks', '-project.tasks')
+    serialize_only = ('id', 'title', 'description', 'status', 'priority', 'due_date', 'user_id', 'project_id')
 
 class Activity(db.Model, SerializerMixin):
     __tablename__ = 'activities'
@@ -139,22 +142,23 @@ class Activity(db.Model, SerializerMixin):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     # serialize rules
-    serialize_rules = ('-created_at', '-updated_at')
+    # serialize_rules = ('-created_at', '-updated_at')
+    serialize_only = ('id', 'action', 'timestamp', 'user_id')
 
-class UserTeam(db.Model, SerializerMixin):
-    __tablename__ = 'user_teams'
+# class UserTeam(db.Model, SerializerMixin):
+#     __tablename__ = 'user_teams'
 
-    # attributes
-    id = db.Column(db.Integer, primary_key=True)
-    created_at = db.Column(db.DateTime, server_default=db.func.now())
-    updated_at = db.Column(db.DateTime, onupdate=db.func.now())
+#     # attributes
+#     id = db.Column(db.Integer, primary_key=True)
+#     created_at = db.Column(db.DateTime, server_default=db.func.now())
+#     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
     
-    # relationships
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    team_id = db.Column(db.Integer, db.ForeignKey('teams.id'))
+#     # relationships
+#     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+#     team_id = db.Column(db.Integer, db.ForeignKey('teams.id'))
 
-    # serialize rules
-    serialize_rules = ('-created_at', '-updated_at')
+#     # serialize rules
+#     serialize_rules = ('-created_at', '-updated_at')
 
 class UserProject(db.Model, SerializerMixin):
     __tablename__ = 'user_projects'
@@ -169,4 +173,5 @@ class UserProject(db.Model, SerializerMixin):
     project_id = db.Column(db.Integer, db.ForeignKey('projects.id'))
 
     # serialize rules
-    serialize_rules = ('-created_at', '-updated_at')
+    # serialize_rules = ('-created_at', '-updated_at')
+    serialize_only = ('id', 'user_id', 'project_id')

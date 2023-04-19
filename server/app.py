@@ -10,7 +10,7 @@ from flask_migrate import Migrate
 
 # Local imports
 from config import app, db, api
-from models import db, User, Project, Task, Team, Activity
+from models import db, User, Project, Task, Activity, UserProject
 
 # Views go here!
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
@@ -64,7 +64,7 @@ class UsersById(Resource):
             return make_response({
                 "error": "User not found"
             }, 404)
-        return make_response(u.to_dict(), 200)
+        return make_response(u.to_dict(rules=('tasks', 'activities', 'projects')), 200)
     
     def patch(self, id):
         u = User.query.filter_by(id = id).first()
@@ -107,7 +107,7 @@ class Projects(Resource):
         try:
             projects = Project(
                 name = data['name'],
-                description = data['description'],
+                description = data['description']
                 
             )
             
@@ -127,7 +127,7 @@ class ProjectsById(Resource):
             return make_response({
                 "error": "Project not found"
             }, 404)
-        return make_response(p.to_dict(), 200)
+        return make_response(p.to_dict(rules=('users', 'tasks' )), 200)
     
     def patch(self, id):
         p = User.query.filter_by(id = id).first()
@@ -182,7 +182,7 @@ class Tasks(Resource):
                 "errors": [e.__str__()]
             }, 422)
         return make_response(tasks.to_dict(),201)
-api.add_resource(Tasks, '/task')
+api.add_resource(Tasks, '/tasks')
 
 class TasksById(Resource):
     def get(self, id):
@@ -216,54 +216,54 @@ class TasksById(Resource):
         db.session.commit()
 api.add_resource(TasksById, '/tasks/<int:id>')
 
-class Teams(Resource):
-    def get(self):
-        teams = Team.query.all()
-        teams_dict_list = [team.to_dict() for team in teams]
+# class Teams(Resource):
+#     def get(self):
+#         teams = Team.query.all()
+#         teams_dict_list = [team.to_dict() for team in teams]
 
-        response = make_response(
-            teams_dict_list,
-            200
-        )
-        return response
-    def post(self):
-        data = request.get_json()
-        try:
-            teams = Teams(
-                name = data['name'],
-            )
-            db.session.add(teams)
-            db.session.commit()
-        except Exception as e:
-            return make_response({
-                "errors": [e.__str__()]
-            }, 422)
-        return make_response(teams.to_dict(),201)
+#         response = make_response(
+#             teams_dict_list,
+#             200
+#         )
+#         return response
+#     def post(self):
+#         data = request.get_json()
+#         try:
+#             teams = Teams(
+#                 name = data['name'],
+#             )
+#             db.session.add(teams)
+#             db.session.commit()
+#         except Exception as e:
+#             return make_response({
+#                 "errors": [e.__str__()]
+#             }, 422)
+#         return make_response(teams.to_dict(),201)
     
-api.add_resource(Teams, '/teams')
+# api.add_resource(Teams, '/teams')
 
     
     
 
-class TeamById(Resource):
-    def get(self, id):
-        t = Team.query.filter_by(id = id).first()
-        if not t:
-            return make_response({
-                "error": "Team not found"
-            }, 404)
-        return make_response(t.to_dict(), 200)
+# class TeamById(Resource):
+#     def get(self, id):
+#         t = Team.query.filter_by(id = id).first()
+#         if not t:
+#             return make_response({
+#                 "error": "Team not found"
+#             }, 404)
+#         return make_response(t.to_dict(), 200)
     
-    def delete(self, id):
-        team = Team.query.filter_by(id = id).first()
-        if not team:
-            return make_response({
-                "error": "Task not found"
-            }, 404)
-        db.session.delete(team)
-        db.session.commit()
+#     def delete(self, id):
+#         team = Team.query.filter_by(id = id).first()
+#         if not team:
+#             return make_response({
+#                 "error": "Task not found"
+#             }, 404)
+#         db.session.delete(team)
+#         db.session.commit()
     
-api.add_resource(TeamById, '/teams/<int:id>')
+# api.add_resource(TeamById, '/teams/<int:id>')
 
 
     

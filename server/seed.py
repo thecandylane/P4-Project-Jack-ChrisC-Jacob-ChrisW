@@ -10,7 +10,7 @@ from faker import Faker
 
 # Local imports
 from app import app
-from models import db, User, Project, Task, Team, Activity, UserTeam, UserProject
+from models import db, User, Project, Task, Activity, UserProject
 
 fake = Faker()
 
@@ -28,16 +28,16 @@ def make_users():
     db.session.add_all(users)
     db.session.commit()
 
-def make_teams():
-    Team.query.delete()
-    teams = []
-    for i in range(5):
-        team = Team(
-            name="team " + str(i + 1)
-        )
-        teams.append(team)
-    db.session.add_all(teams)
-    db.session.commit()
+# def make_teams():
+#     Team.query.delete()
+#     teams = []
+#     for i in range(5):
+#         team = Team(
+#             name="team " + str(i + 1)
+#         )
+#         teams.append(team)
+#     db.session.add_all(teams)
+#     db.session.commit()
 
 def make_projects():
     Project.query.delete()
@@ -46,7 +46,7 @@ def make_projects():
         project = Project(
             name="Project " + str(i + 1),
             description="Project description " + str(i + 1),
-            team_id=random.randint(1, 5)
+            # team_id=random.randint(1, 5)
         )
         projects.append(project)
     db.session.add_all(projects)
@@ -81,18 +81,18 @@ def make_activities():
     db.session.add_all(activities)
     db.session.commit()
 
-def make_user_teams():
-    UserTeam.query.delete()
-    user_teams = []
-    for i in range(2):
-        for j in range (1, 21):
-            user_team = UserTeam(
-                user_id=j,
-                team_id=random.randint(1, 5)
-            )
-            user_teams.append(user_team)
-    db.session.add_all(user_teams)
-    db.session.commit()
+# def make_user_teams():
+#     UserTeam.query.delete()
+#     user_teams = []
+#     for i in range(2):
+#         for j in range (1, 21):
+#             user_team = UserTeam(
+#                 user_id=j,
+#                 team_id=random.randint(1, 5)
+#             )
+#             user_teams.append(user_team)
+#     db.session.add_all(user_teams)
+#     db.session.commit()
 
 def make_user_projects():
     UserProject.query.delete()
@@ -113,10 +113,10 @@ if __name__ == '__main__':
         print("Starting seed...")
         make_users()
         make_projects()
-        make_teams()
+        # make_teams()
         make_tasks()
         make_activities()
-        make_user_teams()
+        # make_user_teams()
         make_user_projects()
         print("Seeding finished")
         # Seed code goes here!
