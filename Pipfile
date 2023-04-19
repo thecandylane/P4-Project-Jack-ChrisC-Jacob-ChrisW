@@ -13,6 +13,10 @@ flask-cors = "*"
 werkzeug = "*"
 faker = "*"
 flask-bcrypt = "*"
+python-dotenv = "*"
+uuid = "*"
+flask-session = "*"
+redis = "*"
 
 [dev-packages]
 
