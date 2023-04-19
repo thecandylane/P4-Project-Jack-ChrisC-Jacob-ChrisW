@@ -42,7 +42,7 @@ def make_users():
 def make_projects():
     Project.query.delete()
     projects = []
-    for i in range(10):
+    for i in range(20):
         project = Project(
             name="Project " + str(i + 1),
             description="Project description " + str(i + 1),
@@ -55,17 +55,18 @@ def make_projects():
 def make_tasks():
     Task.query.delete()
     tasks = []
-    for i in range(40):
-        task = Task(
-            title="task " + str(i+ 1),
-            description="task description " + str(i + 1),
-            status="task " + str(i + 1) + " status",
-            priority=random.randint(1, 10),
-            due_date=datetime.strptime(fake.date(), '%Y-%m-%d').date(),
-            user_id=random.randint(1, 20),
-            project_id=random.randint(1, 10)
-        )
-        tasks.append(task)
+    for j in range(2):
+        for i in range(20):
+            task = Task(
+                title="task " + str(i + 1),
+                description="task description " + str(i + 1),
+                status="task " + str(i + 1) + " status",
+                priority=random.randint(1, 10),
+                due_date=datetime.strptime(fake.date(), '%Y-%m-%d').date(),
+                user_id=i + 1,
+                project_id=i +1
+            )
+            tasks.append(task)
     db.session.add_all(tasks)
     db.session.commit()
 
@@ -97,13 +98,12 @@ def make_activities():
 def make_user_projects():
     UserProject.query.delete()
     user_projects = []
-    for i in range(2):
-        for j in range (1, 21):
-            user_project = UserProject(
-                user_id=j,
-                project_id=random.randint(1, 5)
-            )
-            user_projects.append(user_project)
+    for j in range (1, 21):
+        user_project = UserProject(
+            user_id=j,
+            project_id=j
+        )
+        user_projects.append(user_project)
     db.session.add_all(user_projects)
     db.session.commit()
 
