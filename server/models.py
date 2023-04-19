@@ -3,11 +3,15 @@ from flask_restful import Api, Resource
 from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.orm import validates
 from sqlalchemy.ext.associationproxy import association_proxy
+from uuid import uuid4
 
 
 db = SQLAlchemy()
 
 from config import *
+
+def get_uuid():
+    return uuid4().hex
 
 # Models go here!
 
@@ -15,11 +19,11 @@ class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
 
     # attributes
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True, nullable=False)
+    id = db.Column(db.String(36), primary_key=True, unique=True, default=get_uuid)
+    username = db.Column(db.String(80), unique=True)
     admin = db.Column(db.Boolean, default=False, nullable=False)
-    email = db.Column(db.String(120), unique=True, nullable=False)
-    password = db.Column(db.String(255), nullable=False)
+    email = db.Column(db.String(345), unique=True, nullable=False)
+    password = db.Column(db.Text, nullable=False)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 
