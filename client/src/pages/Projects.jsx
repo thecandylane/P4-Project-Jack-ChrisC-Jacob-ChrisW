@@ -11,10 +11,10 @@ import { Header } from '../components';
 const Projects = () => {
   const [projectItem, setProjectItem]= useState({})
 
-  function handleRowSelected(args) {
-    console.log(args.data.CustomerID); // logs the selected row data
+  // function handleRowSelected(args) {
+  //   console.log(args.data.CustomerID); // logs the selected row data
 
-  }
+  // }
 
   // function ProjectItem(){
     
@@ -25,13 +25,13 @@ const Projects = () => {
       .then(res=>res.json()
       .then(data=>setProjectItem(data)))
     },[])
-    console.log(projectItem['id'])
+    console.log(projectItem)
   // }
 
 
   return (
     <div className="m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl">
-      {/* <Header category = "Page" title="Projects" />
+      <Header category = "Page" title="Projects" />
       <GridComponent
         
         dataSource={projectItem}
@@ -40,16 +40,15 @@ const Projects = () => {
         toolbar={['Delete']}
         editSettings={{ allowDeleting: true, allowEditing: true}}
         width="auto"
-        rowSelected={handleRowSelected}
-      
+        // rowSelected={handleRowSelected}
       >
         <ColumnsDirective >
-        {customersGrid.map((item, index) => (
+        {projectItem.map((item, index) => (
           <ColumnDirective key={index} {...item}/>
         ))}
         </ColumnsDirective>
         <Inject services={[Page, Toolbar, Selection, Edit, Sort, Filter]}/>
-      </GridComponent> */}
+      </GridComponent>
     </div>
   )
 }

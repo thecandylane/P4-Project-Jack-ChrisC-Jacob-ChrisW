@@ -85,7 +85,7 @@ class Project(db.Model, SerializerMixin):
     
     # attributes
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(80), unique=True, nullable=False)
+    field = db.Column(db.String(80), unique=True, nullable=False)
     description = db.Column(db.String(255), nullable=True)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
@@ -98,14 +98,14 @@ class Project(db.Model, SerializerMixin):
 
     # serialize rules
     # serialize_rules = ('-created_at', '-updated_at', '-user_projects', '-users', '-tasks')
-    serialize_only = ('id', 'name', 'description')
+    serialize_only = ('id', 'field', 'description')
 
     # validations
-    @validates('name')
-    def validate_username(self, key, name):
-        if name in [project.name for project in Project.query.all()]:
-            raise ValueError("Project name already taken")
-        return name
+    @validates('field')
+    def validate_username(self, key, field):
+        if field in [project.field for project in Project.query.all()]:
+            raise ValueError("Project field already taken")
+        return field
 
 class Task(db.Model, SerializerMixin):
     __tablename__ = 'tasks'

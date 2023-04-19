@@ -44,7 +44,7 @@ def make_projects():
     projects = []
     for i in range(20):
         project = Project(
-            name="Project " + str(i + 1),
+            field="Project " + str(i + 1),
             description="Project description " + str(i + 1),
             # team_id=random.randint(1, 5)
         )
