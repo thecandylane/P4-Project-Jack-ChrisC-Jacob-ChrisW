@@ -9,7 +9,11 @@ import { customersData, customersGrid } from '../data/dummy';
 import { Header } from '../components';
 
 const Projects = () => {
-  const [projectItem, setProjectItem]= useState({})
+  const [projectItem, setProjectItem]= useState([{
+    'field': '',
+    'id': 0,
+    'description': ''
+  }])
 
   // function handleRowSelected(args) {
   //   console.log(args.data.CustomerID); // logs the selected row data
@@ -25,7 +29,7 @@ const Projects = () => {
       .then(res=>res.json()
       .then(data=>setProjectItem(data)))
     },[])
-    console.log(projectItem[0].id)
+    console.log(Object.keys(projectItem[0]))
   // }
 
 
@@ -34,7 +38,7 @@ const Projects = () => {
       <Header category = "Page" title="Projects" />
       <GridComponent
         
-        // dataSource={projectItem}
+        dataSource={projectItem}
         allowPaging
         allowSorting
         toolbar={['Delete']}
@@ -43,7 +47,7 @@ const Projects = () => {
         // rowSelected={handleRowSelected}
       >
         <ColumnsDirective >
-        {projectItem.map((item, index) => (
+        {customersGrid.map((item, index) => (
           <ColumnDirective key={index} {...item}/>
         ))}
         </ColumnsDirective>
