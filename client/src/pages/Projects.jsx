@@ -25,7 +25,7 @@ const Projects = () => {
       .then(res=>res.json()
       .then(data=>setProjectItem(data)))
     },[])
-    console.log(projectItem)
+    console.log(projectItem[0].id)
   // }
 
 
@@ -34,7 +34,7 @@ const Projects = () => {
       <Header category = "Page" title="Projects" />
       <GridComponent
         
-        dataSource={projectItem}
+        // dataSource={projectItem}
         allowPaging
         allowSorting
         toolbar={['Delete']}
