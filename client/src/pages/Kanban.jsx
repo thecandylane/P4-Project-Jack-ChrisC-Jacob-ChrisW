@@ -17,7 +17,7 @@ const Kanban = () => {
       if (r.ok){
         r.json().then(data => {
           console.log(data)
-          setTaskItem(data)
+          setTaskItem(data.tasks)
         })
     } else{
         navigate('/')
@@ -30,9 +30,9 @@ const Kanban = () => {
       <Header category="App" title="Kanban" />
       <KanbanComponent
         id="kanban"
-        dataSource={taskItem}
-        cardSettings={{ contentField: 'description', headerField: 'title' }}
-        keyField="status"
+        dataSource={kanbanData} 
+        cardSettings={{ contentField: 'Summary', headerField: 'Id' }}
+        keyField="Status"
         
       
       >
