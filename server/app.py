@@ -7,6 +7,7 @@ from flask_restful import Resource, Api
 from flask_migrate import Migrate
 from flask_bcrypt import Bcrypt
 from flask_session import Session
+from flask_cors import CORS
 
 # Local imports
 from config import app, db, api
@@ -16,6 +17,8 @@ from models import db, User, Project, Task, Activity, UserProject
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
+
+CORS(app)
 
 bcrypt = Bcrypt(app)
 server_session = Session(app)
