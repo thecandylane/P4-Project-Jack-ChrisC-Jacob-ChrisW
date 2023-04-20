@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <<<<<<<< HEAD:server/migrations/versions/234900326042_blah.py
 <<<<<<<< HEAD:server/migrations/versions/a4eaf5e580d8_bitch.py
 """bitch
@@ -19,6 +20,13 @@ Revision ID: 38fb655a7541
 Revises: 
 Create Date: 2023-04-20 11:05:06.742474
 >>>>>>>> 637ae10 (adding login, logout, signup):server/migrations/versions/38fb655a7541_asdfsdf.py
+=======
+"""asdfsdf
+
+Revision ID: 38fb655a7541
+Revises: 
+Create Date: 2023-04-20 11:05:06.742474
+>>>>>>> 637ae10 (adding login, logout, signup)
 
 """
 from alembic import op
@@ -26,6 +34,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
+<<<<<<< HEAD
 <<<<<<<< HEAD:server/migrations/versions/234900326042_blah.py
 <<<<<<<< HEAD:server/migrations/versions/a4eaf5e580d8_bitch.py
 revision = 'a4eaf5e580d8'
@@ -35,6 +44,9 @@ revision = '234900326042'
 ========
 revision = '38fb655a7541'
 >>>>>>>> 637ae10 (adding login, logout, signup):server/migrations/versions/38fb655a7541_asdfsdf.py
+=======
+revision = '38fb655a7541'
+>>>>>>> 637ae10 (adding login, logout, signup)
 down_revision = None
 branch_labels = None
 depends_on = None
