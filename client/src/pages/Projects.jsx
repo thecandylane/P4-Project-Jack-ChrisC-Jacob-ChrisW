@@ -42,7 +42,7 @@ const Projects = () => {
     // console.log(Object.keys(projectItem[0]))
   // }
 
-  console.log('click')
+  // console.log('click')
 
 
   return (
@@ -51,6 +51,11 @@ const Projects = () => {
       {/* <ButtonComponent onClick={onClick}>Selected Records</ButtonComponent> */}
       <form>
         <input name='project' placeholder='Enter Project ID'></input>
+        <input type='radio' name='searchOrDelete'></input>
+        <label> search</label>
+        <input type='radio' name='searchOrDelete'></input>
+        <label> delete</label>
+        <button type='submit'>Submit</button>
       </form>
       <GridComponent
         
