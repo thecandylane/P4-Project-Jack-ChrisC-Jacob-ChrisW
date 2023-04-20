@@ -47,7 +47,10 @@ const Projects = () => {
   return (
     <div className="m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl">
       <Header category = "Page" title="Projects" />
-      <ButtonComponent onClick={onClick}>Selected Records</ButtonComponent>
+      {/* <ButtonComponent onClick={onClick}>Selected Records</ButtonComponent> */}
+      <form>
+        <input name='project' placeholder='Enter Project ID'></input>
+      </form>
       <GridComponent
         
         dataSource={projectItem}
