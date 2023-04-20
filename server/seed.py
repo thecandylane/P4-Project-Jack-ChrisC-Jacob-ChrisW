@@ -54,13 +54,14 @@ def make_projects():
 
 def make_tasks():
     Task.query.delete()
+    status_list = ['To Do', 'In Progress', 'testing', 'Done']
     tasks = []
     for j in range(2):
         for i in range(20):
             task = Task(
                 title="task " + str(i + 1),
                 description="task description " + str(i + 1),
-                status="task " + str(i + 1) + " status",
+                status= status_list[random.randint(0,3)],
                 priority=random.randint(1, 10),
                 due_date=datetime.strptime(fake.date(), '%Y-%m-%d').date(),
                 user_id=i + 1,
