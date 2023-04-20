@@ -8,15 +8,19 @@ import { useNavigate } from 'react-router-dom';
 
 const Kanban = () => {
   const navigate = useNavigate()
+  const [taskItem, setTaskItem] = useState([{}])
   useEffect(() => {
     fetch('http://localhost:5555/@me',{
       'credentials':'include'
     })
     .then(r => {
       if (r.ok){
-      r.json().then(data => console.log(data))
+        r.json().then(data => {
+          console.log(data)
+          setTaskItem(data)
+        })
     } else{
-      navigate('/')
+        navigate('/')
     }
       
     })

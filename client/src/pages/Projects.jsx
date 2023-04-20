@@ -1,4 +1,4 @@
-import { ButtonComponent } from '@syncfusion/ej2-react-buttons'
+// import { ButtonComponent } from '@syncfusion/ej2-react-buttons'
 import React from 'react'
 import { GridComponent, ColumnsDirective, ColumnDirective, Page, Selection, Inject, Edit,
 Toolbar, Sort, Filter, Search} from '@syncfusion/ej2-react-grids'
