@@ -5,7 +5,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 
-import { customersData, customersGrid } from '../data/dummy';
+import { projectsGrid } from '../data/dummy';
 import { Header } from '../components';
 
 const Projects = ({setProjectId, setProjectViewItem, projectId}) => {
@@ -77,9 +77,12 @@ const Projects = ({setProjectId, setProjectViewItem, projectId}) => {
         // rowSelected={handleRowSelected}
       >
         <ColumnsDirective >
-        {customersGrid.map((item, index) => (
-          <ColumnDirective key={index} {...item}/>
+        {projectsGrid.map((item, index) => (
+          <ColumnDirective key={index} {...item} 
+          // onClick = {handleClick}
+          />
         ))}
+
         </ColumnsDirective>
         <Inject services={[Page, Toolbar, Selection, Edit, Sort, Filter, Search]}/>
       </GridComponent>

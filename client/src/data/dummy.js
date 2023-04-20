@@ -391,7 +391,7 @@ export const LinePrimaryYAxis = {
   minorTickLines: { width: 0 },
 };
 
-export const customersGrid = [
+export const projectsGrid = [
   // { type: 'checkbox', width: '50' },
   // { headerText: 'Field',
   //   width: '150',
@@ -420,7 +420,7 @@ export const customersGrid = [
   //   textAlign: 'Center' },
   { field: 'id',
     headerText: 'ID',
-    width: '120',
+    width: '80',
     textAlign: 'Center',
     isPrimaryKey: true,
   },
@@ -439,39 +439,41 @@ export const customersGrid = [
 ];
 
 export const employeesGrid = [
-  { headerText: 'Employee',
-    width: '150',
+  { headerText: '',
+    width: '35',
     template: gridEmployeeProfile,
     textAlign: 'Center' },
-  { field: 'Name',
-    headerText: '',
-    width: '0',
-    textAlign: 'Center',
-  },
-  { field: 'Title',
-    headerText: 'Designation',
+
+  { field: 'username',
+    headerText: 'Username',
     width: '170',
     textAlign: 'Center',
   },
-  { headerText: 'Country',
-    width: '120',
+  { field: 'email',
+    headerText: 'Email',
+    width: '170',
     textAlign: 'Center',
-    template: gridEmployeeCountry },
+  },
+  // { headerText: 'Country',
+  //   width: '120',
+  //   textAlign: 'Center',
+  //   template: gridEmployeeCountry },
 
-  { field: 'HireDate',
-    headerText: 'Hire Date',
-    width: '135',
-    format: 'yMd',
-    textAlign: 'Center' },
+  // { field: 'HireDate',
+  //   headerText: 'Hire Date',
+  //   width: '135',
+  //   format: 'yMd',
+  //   textAlign: 'Center' },
 
-  { field: 'ReportsTo',
-    headerText: 'Reports To',
-    width: '120',
-    textAlign: 'Center' },
-  { field: 'EmployeeID',
-    headerText: 'Employee ID',
-    width: '125',
-    textAlign: 'Center' },
+  // { field: 'ReportsTo',
+  //   headerText: 'Reports To',
+  //   width: '120',
+  //   textAlign: 'Center' },
+
+  // { field: 'EmployeeID',
+  //   headerText: 'Employee ID',
+  //   width: '125',
+  //   textAlign: 'Center' },
 ];
 
 export const links = [

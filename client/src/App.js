@@ -70,7 +70,7 @@ const App = () => {
                 {themeSettings && <ThemeSettings />}
                 <Routes>
                     {/* Dashboard */}
-                    <Route path="/" element=<Login/> />
+                    <Route path="/" element={<Login/>} />
                     <Route path="/home" element={<Home />} />
 
                     {/* Products */}
@@ -98,9 +98,9 @@ const App = () => {
                     <Route path="/stacked" element={<Stacked />} />
 
                     {/* {extra views} */}
-                    <Route path="/projects/:id"  element={<Projectview projectId={projectId} />} />
-                    <Route path="/tasks/:id" element={<Taskview taskId={taskId}/>} />
-                    <Route path="/users/id" element={<Userview userId={userId}/>} />
+                    <Route path="/projects/:id" element={<Projectview />} />
+                    <Route path="/tasks/:id" element={<Taskview />} />
+                    <Route path="/users/:id" element={<Userview />} />
                     <Route path="/signup" element={<Signup />} />
                     
                 </Routes>

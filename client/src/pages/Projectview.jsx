@@ -30,6 +30,15 @@ console.log(projectViewItem.tasks)
 console.log(projectViewItem.users)
 
 const { currentColor } = useStateContext();
+
+  let params = useParams()
+  useEffect(() => 
+    fetch(`http://127.0.0.1:5555/projects/${params.id}`)
+    .then(resp => resp.json())
+    .then(data => data)
+    , [])
+  console.log(params.id)
+
   return (
     <div className="mt-12">
       <div className="flex flex-wrap lg:flex-nowrap justify-center">
