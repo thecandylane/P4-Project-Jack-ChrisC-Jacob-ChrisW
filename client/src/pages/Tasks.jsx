@@ -4,19 +4,65 @@ import { GridComponent, ColumnsDirective, ColumnDirective, Resize, Sort,
 
 import { ordersData, contextMenuItems, ordersGrid } from '../data/dummy';
 import { Header } from '../components';
+import { useParams, useNavigate } from 'react-router-dom'
+
 
 const Tasks = () => {
   const [tasks, setTasks] = useState({})
+  // const navigate = useNavigate()
 
-  useEffect(() => {
-    fetch('http://127.0.0.1:5555/tasks')
-    .then(res=>res.json())
-    .then(data=>setTasks(data))
-  }, [])
+  // const [projectItem, setProjectItem]= useState({})
+  // const [deleteChange, setDeleteChange] = useState('search')
+
+  // function handleClick(){
+  //   navigate('/')
+  // }
+
+  // function handleSearchChange(e){
+  //   setDeleteChange('search')
+  // }
+
+  // function handleDeleteChange(e){
+  //   setDeleteChange('delete')
+  // }
+
+  // function handleSubmit(e){
+  //   e.preventDefault()
+  //   // console.log('submit click')
+  //   // console.log(e.target.project.value)
+  //   // console.log(deleteChange)
+  //   if (deleteChange === 'search'){
+  //     setProjectId(e.target.project.value)
+  //     navigate(`/projects/${e.target.project.value}`)
+  //   }
+  //   else if(deleteChange === 'delete'){
+  //     fetch(`http://localhost:4000/projects/${e.target.project.value}`, {
+  //       method: "DELETE",
+  //     })
+  //     .then(res => res.json())
+  //     .then(res => console.log(res))
+  //     window.location.reload(false)
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   fetch('http://127.0.0.1:5555/tasks')
+  //   .then(res=>res.json())
+  //   .then(data=>setTasks(data))
+  // }, [])
 
   return (
     <div className="m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl">
       <Header category = "Page" title="Tasks" />
+      {/* <form onSubmit={handleSubmit}>
+        <input name='project' placeholder='Enter Project ID'></input>
+        <input type='radio' name='searchOrDelete' onChange={handleSearchChange} defaultChecked></input>
+        <label> search</label>
+        <input type='radio' name='searchOrDelete'onChange={handleDeleteChange}></input>
+        <label> delete</label>
+        <button type='submit'>Submit</button>
+        <button type='submit' onClick={handleClick}>New Task</button>
+      </form> */}
       <GridComponent
         id="gridcomp"
         dataSource={tasks}
