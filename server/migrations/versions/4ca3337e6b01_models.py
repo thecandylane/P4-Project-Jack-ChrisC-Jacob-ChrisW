@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <<<<<<<< HEAD:server/migrations/versions/4ca3337e6b01_models.py
 """models
 
@@ -11,6 +12,37 @@ Revision ID: a4eaf5e580d8
 Revises: 
 Create Date: 2023-04-20 15:24:20.645394
 >>>>>>>> b983dfd (trying to link backend to kanban component):server/migrations/versions/a4eaf5e580d8_bitch.py
+=======
+<<<<<<< HEAD:server/migrations/versions/234900326042_blah.py
+<<<<<<<< HEAD:server/migrations/versions/234900326042_blah.py
+<<<<<<<< HEAD:server/migrations/versions/52fe35479976_remake.py
+"""remake
+
+Revision ID: 52fe35479976
+Revises: 
+Create Date: 2023-04-20 17:33:22.005949
+========
+"""blah
+=======
+"""models
+>>>>>>> fcf0e9a (projects/projectsview):server/migrations/versions/4ca3337e6b01_models.py
+
+Revision ID: 4ca3337e6b01
+Revises: 
+<<<<<<< HEAD:server/migrations/versions/234900326042_blah.py
+Create Date: 2023-04-20 12:50:38.756619
+>>>>>>>> b1f2191 (struggle bug):server/migrations/versions/234900326042_blah.py
+========
+"""asdfsdf
+
+Revision ID: 38fb655a7541
+Revises: 
+Create Date: 2023-04-20 11:05:06.742474
+>>>>>>>> 637ae10 (adding login, logout, signup):server/migrations/versions/38fb655a7541_asdfsdf.py
+=======
+Create Date: 2023-04-20 17:03:32.437333
+>>>>>>> fcf0e9a (projects/projectsview):server/migrations/versions/4ca3337e6b01_models.py
+>>>>>>> 6e3b93c (projects/projectsview)
 
 """
 from alembic import op
@@ -18,11 +50,27 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
+<<<<<<< HEAD
 <<<<<<<< HEAD:server/migrations/versions/4ca3337e6b01_models.py
 revision = '4ca3337e6b01'
 ========
 revision = 'a4eaf5e580d8'
 >>>>>>>> b983dfd (trying to link backend to kanban component):server/migrations/versions/a4eaf5e580d8_bitch.py
+=======
+<<<<<<< HEAD:server/migrations/versions/234900326042_blah.py
+<<<<<<<< HEAD:server/migrations/versions/234900326042_blah.py
+<<<<<<<< HEAD:server/migrations/versions/52fe35479976_remake.py
+revision = '52fe35479976'
+========
+revision = '234900326042'
+>>>>>>>> b1f2191 (struggle bug):server/migrations/versions/234900326042_blah.py
+========
+revision = '38fb655a7541'
+>>>>>>>> 637ae10 (adding login, logout, signup):server/migrations/versions/38fb655a7541_asdfsdf.py
+=======
+revision = '4ca3337e6b01'
+>>>>>>> fcf0e9a (projects/projectsview):server/migrations/versions/4ca3337e6b01_models.py
+>>>>>>> 6e3b93c (projects/projectsview)
 down_revision = None
 branch_labels = None
 depends_on = None
