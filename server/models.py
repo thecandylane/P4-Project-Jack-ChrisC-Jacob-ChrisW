@@ -4,7 +4,7 @@ from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.orm import validates
 from sqlalchemy.ext.associationproxy import association_proxy
 from uuid import uuid4
-
+from datetime import datetime
 
 db = SQLAlchemy()
 
@@ -121,7 +121,7 @@ class Task(db.Model, SerializerMixin):
     description = db.Column(db.String(255), nullable=True)
     status = db.Column(db.String(80), nullable=False)
     priority = db.Column(db.Integer, nullable=False)
-    due_date = db.Column(db.Date, nullable=True)
+    due_date = db.Column(db.String, nullable=True)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
     
