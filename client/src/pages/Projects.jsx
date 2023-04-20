@@ -45,6 +45,7 @@ const Projects = ({setProjectId, setProjectViewItem, projectId}) => {
     }
   }
 
+<<<<<<< HEAD
   // function handleRowSelected(args) {
   //   // let name = args.data.name
   //   // let length = name.length
@@ -67,15 +68,14 @@ const Projects = ({setProjectId, setProjectViewItem, projectId}) => {
     console.log('click')
   }
 
+=======
+>>>>>>> f08975d (doing stuff)
     useEffect(()=>{
       fetch('http://localhost:5555/projects')
       .then(res=>res.json()
       .then(data=>setProjectItem(data)))
     },[])
-    // console.log(Object.keys(projectItem[0]))
-  // }
 
-  // console.log('click')
 
 
 
