@@ -41,11 +41,11 @@ const Tasks = ({setTaskId}) => {
     }
   }
 
-  useEffect(() => {
-    fetch('http://127.0.0.1:5555/tasks')
-    .then(res=>res.json())
-    .then(data=>setTasks(data))
-  }, [])
+  // useEffect(() => {
+  //   fetch('http://127.0.0.1:5555/tasks')
+  //   .then(res=>res.json())
+  //   .then(data=>setTasks(data))
+  // }, [])
 
   return (
     <div className="m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl">
