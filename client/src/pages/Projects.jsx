@@ -17,37 +17,17 @@ const Projects = () => {
     console.log('click')
   }
 
-  // function handleRowSelected(args) {
-  //   // let name = args.data.name
-  //   // let length = name.length
-  //   // let number = (args.data.name[length-1]); // logs the selected row data
-  //   // navigate(`/projects/${number}`)
-  //   // let id = document.querySelector('.e-rowcell')
-  //   // let value = id.getAttribute('index')
-  //   // console.log(value)
-  //   // navigate(`/`)
-  //   // console.log(args.getSelectedRows)
-  // }
-
-  // function ProjectItem(){
-    
-    // let params = useParams()
-    // console.log(params)
     useEffect(()=>{
       fetch('http://localhost:5555/projects')
       .then(res=>res.json()
       .then(data=>setProjectItem(data)))
     },[])
-    // console.log(Object.keys(projectItem[0]))
-  // }
 
-  // console.log('click')
 
 
   return (
     <div className="m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl">
       <Header category = "Page" title="Projects" />
-      {/* <ButtonComponent onClick={onClick}>Selected Records</ButtonComponent> */}
       <form>
         <input name='project' placeholder='Enter Project ID'></input>
         <input type='radio' name='searchOrDelete'></input>
