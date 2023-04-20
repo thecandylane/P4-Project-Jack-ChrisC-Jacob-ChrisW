@@ -6,6 +6,11 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
 import { Home, Tasks, Calendar, Users, Stacked, Pyramid, Projects, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor } from './pages';
 import Login from './pages/Login';
+import Projectview from './pages/Projectview';
+import Userview from './pages/Userview';
+import Taskview from './pages/Taskview';
+import Signup from './pages/Signup';
+
 import { useStateContext } from './contexts/ContextProvider';
 import './App.css'
 import { Theme } from '@syncfusion/ej2-react-charts';
@@ -78,6 +83,13 @@ const App = () => {
                     <Route path="/color-mapping" element={<ColorMapping />} />
                     <Route path="/pyramid" element={<Pyramid />} />
                     <Route path="/stacked" element={<Stacked />} />
+
+                    {/* {extra views} */}
+                    <Route path="/projects/id" element={<Projectview />} />
+                    <Route path="/tasks/id" element={<Taskview />} />
+                    <Route path="/users/id" element={<Userview />} />
+                    <Route path="/signup" element={<Signup />} />
+                    
                 </Routes>
              </div>
             </div>

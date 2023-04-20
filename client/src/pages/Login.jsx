@@ -1,6 +1,7 @@
 import React from 'react'
 import login from '../data/login.jpg'
 import { Header } from '../components'
+import { Link, NavLink } from 'react-router-dom';
 
 export default function Login() {
     return (
@@ -26,7 +27,11 @@ export default function Login() {
                   </div>
                   <button className='w-full my-5 py-2 bg-teal-500 shadow-lg shadow-teal-500/50 hover:shadow-teal-500/40 text-white text-xs font-semibold rounded-lg'>SIGNIN</button>
                   <button className='w-full my-5 py-2 bg-teal-500 shadow-lg
-                   shadow-teal-500/50 hover:shadow-teal-500/40 text-white text-xs font-semibold rounded-lg'>REGISTER</button>
+                   shadow-teal-500/50 hover:shadow-teal-500/40 text-white text-xs font-semibold rounded-lg'>
+                    <Link to = "/signup">
+                        <span>REGISTER</span>
+                    </Link>
+                    </button>
                   
               </form>
           </div>
