@@ -5,6 +5,7 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
 import { Home, Tasks, Calendar, Users, Stacked, Pyramid, Projects, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor } from './pages';
+import Login from './pages/Login';
 import { useStateContext } from './contexts/ContextProvider';
 import './App.css'
 import { Theme } from '@syncfusion/ej2-react-charts';
@@ -51,7 +52,7 @@ const App = () => {
                 {themeSettings && <ThemeSettings />}
                 <Routes>
                     {/* Dashboard */}
-                    <Route path="/" element={<Home />} />
+                    <Route path="/" element=<Login/> />
                     <Route path="/home" element={<Home />} />
 
                     {/* Products */}
