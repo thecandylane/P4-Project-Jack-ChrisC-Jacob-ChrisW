@@ -1,4 +1,3 @@
-import { ButtonComponent } from '@syncfusion/ej2-react-buttons'
 import React from 'react'
 import { GridComponent, ColumnsDirective, ColumnDirective, Page, Selection, Inject, Edit,
 Toolbar, Sort, Filter} from '@syncfusion/ej2-react-grids'
@@ -35,7 +34,7 @@ const Projects = () => {
     // let params = useParams()
     // console.log(params)
     useEffect(()=>{
-      fetch('http://127.0.0.1:5555/projects')
+      fetch('http://localhost:5555/projects')
       .then(res=>res.json()
       .then(data=>setProjectItem(data)))
     },[])
