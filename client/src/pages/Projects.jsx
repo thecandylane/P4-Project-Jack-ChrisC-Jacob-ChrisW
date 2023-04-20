@@ -5,10 +5,10 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 
-import { projectsGrid } from '../data/dummy';
+import { customersData, projectsGrid } from '../data/dummy';
 import { Header } from '../components';
 
-const Projects = ({setProjectId, setProjectViewItem, projectId}) => {
+const Projects = ({setProjectId}) => {
   const navigate = useNavigate()
 
   const [projectItem, setProjectItem]= useState({})
@@ -32,6 +32,7 @@ const Projects = ({setProjectId, setProjectViewItem, projectId}) => {
     // console.log(e.target.project.value)
     // console.log(deleteChange)
     if (deleteChange === 'search'){
+      console.log(e.target.project.value)
       setProjectId(e.target.project.value)
       navigate(`/projects/${e.target.project.value}`)
     }
@@ -50,8 +51,6 @@ const Projects = ({setProjectId, setProjectViewItem, projectId}) => {
       .then(res=>res.json()
       .then(data=>setProjectItem(data)))
     },[])
-
-
 
 
 
@@ -80,11 +79,8 @@ const Projects = ({setProjectId, setProjectViewItem, projectId}) => {
       >
         <ColumnsDirective >
         {projectsGrid.map((item, index) => (
-          <ColumnDirective key={index} {...item} 
-          // onClick = {handleClick}
-          />
+          <ColumnDirective key={index} {...item}/>
         ))}
-
         </ColumnsDirective>
         <Inject services={[Page, Toolbar, Selection, Edit, Sort, Filter, Search]}/>
       </GridComponent>
