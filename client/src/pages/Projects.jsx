@@ -45,12 +45,37 @@ const Projects = ({setProjectId, setProjectViewItem, projectId}) => {
     }
   }
 
+  // function handleRowSelected(args) {
+  //   // let name = args.data.name
+  //   // let length = name.length
+  //   // let number = (args.data.name[length-1]); // logs the selected row data
+  //   // navigate(`/projects/${number}`)
+  //   // let id = document.querySelector('.e-rowcell')
+  //   // let value = id.getAttribute('index')
+  //   // console.log(value)
+  //   // navigate(`/`)
+  //   // console.log(args.getSelectedRows)
+  // }
+
+  // function ProjectItem(){
+    
+    // let params = useParams()
+    // console.log(params)
+  const [projectItem, setProjectItem]= useState({})
+
+  function onClick(){
+    console.log('click')
+  }
+
     useEffect(()=>{
       fetch('http://localhost:5555/projects')
       .then(res=>res.json()
       .then(data=>setProjectItem(data)))
     },[])
+    // console.log(Object.keys(projectItem[0]))
+  // }
 
+  console.log('click')
 
 
 
