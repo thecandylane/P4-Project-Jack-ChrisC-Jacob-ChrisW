@@ -17,7 +17,7 @@ const Tasks = () => {
   }
 
   function handleClick(){
-    navigate('/')
+    navigate('/task-form')
   }
 
   function handleDelete(e){
