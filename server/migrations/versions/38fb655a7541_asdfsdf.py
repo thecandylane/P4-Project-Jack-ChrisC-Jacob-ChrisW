@@ -1,3 +1,4 @@
+<<<<<<< HEAD:server/migrations/versions/a4eaf5e580d8_bitch.py
 <<<<<<< HEAD
 <<<<<<<< HEAD:server/migrations/versions/4ca3337e6b01_models.py
 """models
@@ -7,6 +8,9 @@ Revises:
 Create Date: 2023-04-20 17:03:32.437333
 ========
 =======
+=======
+<<<<<<<< HEAD:server/migrations/versions/234900326042_blah.py
+>>>>>>> 525026a (adding login, logout, signup):server/migrations/versions/38fb655a7541_asdfsdf.py
 <<<<<<<< HEAD:server/migrations/versions/a4eaf5e580d8_bitch.py
 >>>>>>> b9934bb (struggle bug)
 """bitch
@@ -24,7 +28,17 @@ Revision ID: 234900326042
 Revises: 
 Create Date: 2023-04-20 12:50:38.756619
 >>>>>>>> b1f2191 (struggle bug):server/migrations/versions/234900326042_blah.py
+<<<<<<< HEAD:server/migrations/versions/a4eaf5e580d8_bitch.py
 >>>>>>> b9934bb (struggle bug)
+=======
+========
+"""asdfsdf
+
+Revision ID: 38fb655a7541
+Revises: 
+Create Date: 2023-04-20 11:05:06.742474
+>>>>>>>> 637ae10 (adding login, logout, signup):server/migrations/versions/38fb655a7541_asdfsdf.py
+>>>>>>> 525026a (adding login, logout, signup):server/migrations/versions/38fb655a7541_asdfsdf.py
 
 """
 from alembic import op
@@ -32,6 +46,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
+<<<<<<< HEAD:server/migrations/versions/a4eaf5e580d8_bitch.py
 <<<<<<< HEAD
 <<<<<<<< HEAD:server/migrations/versions/4ca3337e6b01_models.py
 revision = '4ca3337e6b01'
@@ -39,12 +54,21 @@ revision = '4ca3337e6b01'
 revision = 'a4eaf5e580d8'
 >>>>>>>> b983dfd (trying to link backend to kanban component):server/migrations/versions/a4eaf5e580d8_bitch.py
 =======
+=======
+<<<<<<<< HEAD:server/migrations/versions/234900326042_blah.py
+>>>>>>> 525026a (adding login, logout, signup):server/migrations/versions/38fb655a7541_asdfsdf.py
 <<<<<<<< HEAD:server/migrations/versions/a4eaf5e580d8_bitch.py
 revision = 'a4eaf5e580d8'
 ========
 revision = '234900326042'
 >>>>>>>> b1f2191 (struggle bug):server/migrations/versions/234900326042_blah.py
+<<<<<<< HEAD:server/migrations/versions/a4eaf5e580d8_bitch.py
 >>>>>>> b9934bb (struggle bug)
+=======
+========
+revision = '38fb655a7541'
+>>>>>>>> 637ae10 (adding login, logout, signup):server/migrations/versions/38fb655a7541_asdfsdf.py
+>>>>>>> 525026a (adding login, logout, signup):server/migrations/versions/38fb655a7541_asdfsdf.py
 down_revision = None
 branch_labels = None
 depends_on = None
