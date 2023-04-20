@@ -18,6 +18,8 @@ import { Theme } from '@syncfusion/ej2-react-charts';
 
 const App = () => {
     const { activeMenu, themeSettings, setThemeSettings, currentColor, currentMode } = useStateContext();
+    const [projectId, setProjectId] = useState()
+
     // const [user, setUser] = useState({})
 
     // useEffect(() => {
@@ -73,8 +75,8 @@ const App = () => {
 
                     {/* <Route path="/tasks/params.id" element={<Tasks />} /> */}
                     <Route path="/users" element={<Users />} />
-                    <Route path="/projects" element={<Projects />} />
-                    <Route path="/projects/id" element={<Projects />} />
+                    <Route path="/projects"  element={<Projects setProjectId={setProjectId}/>} />
+                    {/* <Route path="/projects/id" element={<Projects />} /> */}
 
                     {/* Apps */}
                     <Route path="/kanban" element={<Kanban />} />

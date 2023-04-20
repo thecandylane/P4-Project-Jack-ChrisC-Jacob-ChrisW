@@ -1,5 +1,4 @@
-import React, {useEffect} from 'react'
-import {useParams} from "react-router-dom"
+import React, { useEffect, useState } from 'react'
 import { BsCurrencyDollar } from 'react-icons/bs';
 import { GoPrimitiveDot } from 'react-icons/go';
 
@@ -8,8 +7,23 @@ import { Stacked, Pie, Button, SparkLine } from '../components';
 import { earningData, SparklineAreaData, ecomPieChartData } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 
-const Projectview = () => {
-  
+const Projectview = ({projectId}) => {
+  const [projectViewItem, setProjectViewItem] = useState()
+
+useEffect(()=>{
+  fetch(`http://localhost:5555/projects/${projectId}`)
+  .then(res=>res.json())
+  .then(data=>setProjectViewItem(data))
+},[])
+
+console.log(projectId)
+console.log(projectViewItem)
+console.log(projectViewItem.name)
+console.log(projectViewItem.description)
+console.log(projectViewItem.id)
+console.log(projectViewItem.tasks)
+console.log(projectViewItem.users)
+
 const { currentColor } = useStateContext();
 
   let params = useParams()

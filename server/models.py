@@ -19,7 +19,8 @@ class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
 
     # attributes
-    id = db.Column(db.String(36), primary_key=True, unique=True, default=get_uuid)
+    id = db.Column(db.Integer, primary_key=True)
+    unique_id = db.Column(db.String(36), unique=True, default=get_uuid)
     username = db.Column(db.String(80), unique=True)
     admin = db.Column(db.Boolean, default=False, nullable=False)
     email = db.Column(db.String(345), unique=True, nullable=False)
@@ -102,7 +103,7 @@ class Project(db.Model, SerializerMixin):
 
     # serialize rules
     # serialize_rules = ('-created_at', '-updated_at', '-user_projects', '-users', '-tasks')
-    serialize_only = ('id', 'name', 'description')
+    serialize_only = ('id', 'name', 'description', 'users')
 
     # validations
     @validates('name')
