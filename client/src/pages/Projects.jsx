@@ -48,7 +48,7 @@ const Projects = () => {
     // console.log(Object.keys(projectItem[0]))
   // }
 
-  console.log('click')
+  // console.log('click')
 
 
   return (
