@@ -1,16 +1,8 @@
-<<<<<<<< HEAD:server/migrations/versions/51cbfc51e68b_titbite.py
-"""titbite
+"""asdfsdf
 
-Revision ID: 51cbfc51e68b
+Revision ID: 38fb655a7541
 Revises: 
-Create Date: 2023-04-19 18:42:59.199744
-========
-"""new
-
-Revision ID: 7e00d9717a78
-Revises: 
-Create Date: 2023-04-18 17:23:08.819342
->>>>>>>> 38c2674 (adding login/register routes, switching model attributes):server/migrations/versions/7e00d9717a78_new.py
+Create Date: 2023-04-20 11:05:06.742474
 
 """
 from alembic import op
@@ -18,11 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-<<<<<<<< HEAD:server/migrations/versions/51cbfc51e68b_titbite.py
-revision = '51cbfc51e68b'
-========
-revision = '7e00d9717a78'
->>>>>>>> 38c2674 (adding login/register routes, switching model attributes):server/migrations/versions/7e00d9717a78_new.py
+revision = '38fb655a7541'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -42,7 +30,7 @@ def upgrade():
     op.create_table('users',
     sa.Column('id', sa.String(length=36), nullable=False),
     sa.Column('username', sa.String(length=80), nullable=True),
-    sa.Column('admin', sa.Integer(), nullable=True),
+    sa.Column('admin', sa.Boolean(), nullable=False),
     sa.Column('email', sa.String(length=345), nullable=False),
     sa.Column('password', sa.Text(), nullable=False),
     sa.Column('created_at', sa.DateTime(), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=True),

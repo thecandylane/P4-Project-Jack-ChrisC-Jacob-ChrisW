@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { BsCurrencyDollar } from 'react-icons/bs';
 import { GoPrimitiveDot } from 'react-icons/go';
 
@@ -6,9 +6,28 @@ import { Stacked, Pie, Button, SparkLine } from '../components';
 
 import { earningData, SparklineAreaData, ecomPieChartData } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const { currentColor } = useStateContext();
+  const navigate = useNavigate()
+  useEffect(() => {
+    fetch('http://localhost:5555/@me',{
+      'credentials':'include'
+    })
+    .then(r => {
+      if (r.ok){
+      r.json().then(data => console.log(data))
+    } else{
+      navigate('/')
+    }
+      
+    })
+  },[])
+
+
+
+
   return (
     <div className="mt-12">
       <div className="flex flex-wrap lg:flex-nowrap justify-center">
