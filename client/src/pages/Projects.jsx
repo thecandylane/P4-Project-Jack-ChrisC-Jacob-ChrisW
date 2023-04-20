@@ -52,7 +52,6 @@ const Projects = ({setProjectId, setProjectViewItem, projectId}) => {
     },[])
 
 
-  // console.log('click')
 
 
   return (
