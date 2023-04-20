@@ -35,7 +35,7 @@ const Projects = () => {
     // let params = useParams()
     // console.log(params)
     useEffect(()=>{
-      fetch('http://127.0.0.1:5555/projects')
+      fetch('http://localhost:5555/projects')
       .then(res=>res.json()
       .then(data=>setProjectItem(data)))
     },[])
