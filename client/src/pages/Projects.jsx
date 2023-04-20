@@ -1,7 +1,7 @@
 import { ButtonComponent } from '@syncfusion/ej2-react-buttons'
 import React from 'react'
 import { GridComponent, ColumnsDirective, ColumnDirective, Page, Selection, Inject, Edit,
-Toolbar, Sort, Filter} from '@syncfusion/ej2-react-grids'
+Toolbar, Sort, Filter, Search} from '@syncfusion/ej2-react-grids'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
@@ -42,10 +42,11 @@ const Projects = () => {
         dataSource={projectItem}
         allowPaging
         allowSorting
-        toolbar={['Delete']}
+        toolbar={['Delete', 'Search']}
         editSettings={{ allowDeleting: true, allowEditing: true}}
         width="auto"
-        rowSelected={handleRowSelected}
+        
+        // rowSelected={handleRowSelected}
       >
         <ColumnsDirective >
         {projectsGrid.map((item, index) => (
@@ -55,7 +56,7 @@ const Projects = () => {
         ))}
 
         </ColumnsDirective>
-        <Inject services={[Page, Toolbar, Selection, Edit, Sort, Filter]}/>
+        <Inject services={[Page, Toolbar, Selection, Edit, Sort, Filter, Search]}/>
       </GridComponent>
     </div>
   )
