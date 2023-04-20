@@ -8,16 +8,21 @@ import { earningData, SparklineAreaData, ecomPieChartData } from '../data/dummy'
 import { useStateContext } from '../contexts/ContextProvider';
 
 const Projectview = ({projectId}) => {
-  const [projectViewItem, setProjectViewItem] = useState()
+  const [projectViewItem, setProjectViewItem] = useState({name: ""})
+  
 
 useEffect(()=>{
   fetch(`http://localhost:5555/projects/${projectId}`)
   .then(res=>res.json())
-  .then(data=>setProjectViewItem(data))
+  .then((data)=>{
+    setProjectViewItem(data)
+  })
 },[])
 
 console.log(projectId)
 console.log(projectViewItem)
+// let item = projectViewItem
+// console.log(item.name)
 console.log(projectViewItem.name)
 console.log(projectViewItem.description)
 console.log(projectViewItem.id)
@@ -43,7 +48,7 @@ const { currentColor } = useStateContext();
            h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repeat bg-cover bg-center">
             <div className="flex justify-between items-center">
               <div>
-                <p className="font-bold text-gray-400">Earnings</p>
+                <p className="font-bold text-gray-400">{projectViewItem.name}</p>
                 <p className= "text-2xl">$63,448.78</p>
 
               </div>

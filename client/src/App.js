@@ -21,6 +21,7 @@ const App = () => {
     const [projectId, setProjectId] = useState()
     const [taskId, setTaskId]= useState()
     const [userId, setUserId]= useState()
+    
 
     // const [user, setUser] = useState({})
 
@@ -77,7 +78,7 @@ const App = () => {
 
                     {/* <Route path="/tasks/params.id" element={<Tasks />} /> */}
                     <Route path="/users" element={<Users setUserId={setUserId}/>} />
-                    <Route path="/projects"  element={<Projects setProjectId={setProjectId}/>} />
+                    <Route path="/projects"  element={<Projects setProjectId={setProjectId} />} />
                     {/* <Route path="/projects/id" element={<Projects />} /> */}
 
                     {/* Apps */}

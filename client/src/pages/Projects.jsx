@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react'
 import { projectsGrid } from '../data/dummy';
 import { Header } from '../components';
 
-const Projects = ({setProjectId}) => {
+const Projects = ({setProjectId, setProjectViewItem, projectId}) => {
   const navigate = useNavigate()
 
   const [projectItem, setProjectItem]= useState({})
