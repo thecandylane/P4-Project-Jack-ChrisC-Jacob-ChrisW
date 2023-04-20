@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import {useParams} from "react-router-dom"
 import { BsCurrencyDollar } from 'react-icons/bs';
 import { GoPrimitiveDot } from 'react-icons/go';
 
@@ -10,6 +11,15 @@ import { useStateContext } from '../contexts/ContextProvider';
 const Projectview = () => {
   
 const { currentColor } = useStateContext();
+
+  let params = useParams()
+  useEffect(() => 
+    fetch(`http://127.0.0.1:5555/projects/${params.id}`)
+    .then(resp => resp.json())
+    .then(data => data)
+    , [])
+  console.log(params.id)
+
   return (
     <div className="mt-12">
       <div className="flex flex-wrap lg:flex-nowrap justify-center">
