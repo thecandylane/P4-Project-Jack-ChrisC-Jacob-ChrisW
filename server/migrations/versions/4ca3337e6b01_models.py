@@ -1,16 +1,8 @@
-<<<<<<<< HEAD:server/migrations/versions/234900326042_blah.py
-"""blah
+"""models
 
-Revision ID: 234900326042
+Revision ID: 4ca3337e6b01
 Revises: 
-Create Date: 2023-04-20 12:50:38.756619
-========
-"""asdfsdf
-
-Revision ID: 38fb655a7541
-Revises: 
-Create Date: 2023-04-20 11:05:06.742474
->>>>>>>> origin:server/migrations/versions/38fb655a7541_asdfsdf.py
+Create Date: 2023-04-20 17:03:32.437333
 
 """
 from alembic import op
@@ -18,11 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-<<<<<<<< HEAD:server/migrations/versions/234900326042_blah.py
-revision = '234900326042'
-========
-revision = '38fb655a7541'
->>>>>>>> origin:server/migrations/versions/38fb655a7541_asdfsdf.py
+revision = '4ca3337e6b01'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -40,7 +28,8 @@ def upgrade():
     sa.UniqueConstraint('name')
     )
     op.create_table('users',
-    sa.Column('id', sa.String(length=36), nullable=False),
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('unique_id', sa.String(length=36), nullable=True),
     sa.Column('username', sa.String(length=80), nullable=True),
     sa.Column('admin', sa.Boolean(), nullable=False),
     sa.Column('email', sa.String(length=345), nullable=False),
@@ -49,7 +38,7 @@ def upgrade():
     sa.Column('updated_at', sa.DateTime(), nullable=True),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email'),
-    sa.UniqueConstraint('id'),
+    sa.UniqueConstraint('unique_id'),
     sa.UniqueConstraint('username')
     )
     op.create_table('activities',
