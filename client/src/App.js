@@ -99,7 +99,7 @@ const App = () => {
 
                     {/* {extra views} */}
                     <Route path="/projects/:id"  element={<Projectview projectId={projectId} />} />
-                    <Route path="/tasks/id" element={<Taskview taskId={taskId}/>} />
+                    <Route path="/tasks/:id" element={<Taskview taskId={taskId}/>} />
                     <Route path="/users/id" element={<Userview userId={userId}/>} />
                     <Route path="/signup" element={<Signup />} />
                     
