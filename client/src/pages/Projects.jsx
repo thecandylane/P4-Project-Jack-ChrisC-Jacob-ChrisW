@@ -1,7 +1,8 @@
+import { ButtonComponent } from '@syncfusion/ej2-react-buttons'
 import React from 'react'
 import { GridComponent, ColumnsDirective, ColumnDirective, Page, Selection, Inject, Edit,
-Toolbar, Sort, Filter } from '@syncfusion/ej2-react-grids'
-import { useParams } from 'react-router-dom'
+Toolbar, Sort, Filter} from '@syncfusion/ej2-react-grids'
+import { useParams, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 
@@ -9,15 +10,24 @@ import { customersData, customersGrid } from '../data/dummy';
 import { Header } from '../components';
 
 const Projects = () => {
-  const [projectItem, setProjectItem]= useState([{
-    'field': '',
-    'id': 0,
-    'description': ''
-  }])
+  const navigate = useNavigate()
+
+  const [projectItem, setProjectItem]= useState({})
+
+  function onClick(){
+    console.log('click')
+  }
 
   // function handleRowSelected(args) {
-  //   console.log(args.data.CustomerID); // logs the selected row data
-
+  //   // let name = args.data.name
+  //   // let length = name.length
+  //   // let number = (args.data.name[length-1]); // logs the selected row data
+  //   // navigate(`/projects/${number}`)
+  //   // let id = document.querySelector('.e-rowcell')
+  //   // let value = id.getAttribute('index')
+  //   // console.log(value)
+  //   // navigate(`/`)
+  //   // console.log(args.getSelectedRows)
   // }
 
   // function ProjectItem(){
@@ -29,13 +39,16 @@ const Projects = () => {
       .then(res=>res.json()
       .then(data=>setProjectItem(data)))
     },[])
-    console.log(Object.keys(projectItem[0]))
+    // console.log(Object.keys(projectItem[0]))
   // }
+
+  console.log('click')
 
 
   return (
     <div className="m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl">
       <Header category = "Page" title="Projects" />
+      <ButtonComponent onClick={onClick}>Selected Records</ButtonComponent>
       <GridComponent
         
         dataSource={projectItem}

@@ -425,8 +425,8 @@ export const customersGrid = [
     isPrimaryKey: true,
   },
 
-  { field: 'field',
-    headerText: 'Field',
+  { field: 'name',
+    headerText: 'Name',
     width: '150',
     textAlign: 'Center' },
 
@@ -876,51 +876,81 @@ export const userProfileData = [
 ];
 
 export const ordersGrid = [
-  {
-    headerText: 'Image',
-    template: gridOrderImage,
-    textAlign: 'Center',
-    width: '120',
-  },
-  {
-    field: 'OrderItems',
-    headerText: 'Item',
-    width: '150',
-    editType: 'dropdownedit',
-    textAlign: 'Center',
-  },
-  { field: 'CustomerName',
-    headerText: 'Customer Name',
-    width: '150',
-    textAlign: 'Center',
-  },
-  {
-    field: 'TotalAmount',
-    headerText: 'Total Amount',
-    format: 'C2',
-    textAlign: 'Center',
-    editType: 'numericedit',
-    width: '150',
-  },
-  {
-    headerText: 'Status',
-    template: gridOrderStatus,
-    field: 'OrderItems',
-    textAlign: 'Center',
-    width: '120',
-  },
-  {
-    field: 'OrderID',
-    headerText: 'Order ID',
-    width: '120',
-    textAlign: 'Center',
-  },
+  // {
+  //   headerText: 'Image',
+  //   template: gridOrderImage,
+  //   textAlign: 'Center',
+  //   width: '120',
+  // },
+  // {
+  //   field: 'OrderItems',
+  //   headerText: 'Item',
+  //   width: '150',
+  //   editType: 'dropdownedit',
+  //   textAlign: 'Center',
+  // },
+  // { field: 'CustomerName',
+  //   headerText: 'Customer Name',
+  //   width: '150',
+  //   textAlign: 'Center',
+  // },
+  // {
+  //   field: 'TotalAmount',
+  //   headerText: 'Total Amount',
+  //   format: 'C2',
+  //   textAlign: 'Center',
+  //   editType: 'numericedit',
+  //   width: '150',
+  // },
+  // {
+  //   headerText: 'Status',
+  //   template: gridOrderStatus,
+  //   field: 'OrderItems',
+  //   textAlign: 'Center',
+  //   width: '120',
+  // },
+  // {
+  //   field: 'OrderID',
+  //   headerText: 'Order ID',
+  //   width: '120',
+  //   textAlign: 'Center',
+  // },
 
+  // {
+  //   field: 'Location',
+  //   headerText: 'Location',
+  //   width: '150',
+  //   textAlign: 'Center',
+  // },
   {
-    field: 'Location',
-    headerText: 'Location',
+    field: 'id',
+    headerText: 'ID',
     width: '150',
-    textAlign: 'Center',
+    textAlign: 'center'
+  },
+  {
+    field: 'title',
+    headerText: 'Task',
+    width: '150',
+    textAlign: 'center'
+  },
+  {
+    field: 'priority',
+    headerText: 'Priority',
+    width: '150',
+    textAlign: 'center'
+  },
+  {
+    field: 'status',
+    headerText: 'Status',
+    width: '150',
+    textAlign: 'center'
+  },
+  {
+    field: 'due_date',
+    headerText: 'Due Date',
+    width: '150',
+    textAlign: 'center'
   },
 ];
 

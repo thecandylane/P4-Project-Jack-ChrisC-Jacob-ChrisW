@@ -85,7 +85,7 @@ const App = () => {
                     <Route path="/stacked" element={<Stacked />} />
 
                     {/* {extra views} */}
-                    <Route path="/projects/id" element={<Projectview />} />
+                    <Route path="/projects/:id" element={<Projectview />} />
                     <Route path="/tasks/id" element={<Taskview />} />
                     <Route path="/users/id" element={<Userview />} />
                     <Route path="/signup" element={<Signup />} />
