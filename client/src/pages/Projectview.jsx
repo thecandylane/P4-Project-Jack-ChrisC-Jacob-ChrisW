@@ -21,13 +21,11 @@ useEffect(()=>{
 
 console.log(projectId)
 console.log(projectViewItem)
-// let item = projectViewItem
-// console.log(item.name)
-console.log(projectViewItem.name)
-console.log(projectViewItem.description)
-console.log(projectViewItem.id)
-console.log(projectViewItem.tasks)
-console.log(projectViewItem.users)
+// console.log(projectViewItem.name)
+// console.log(projectViewItem.description)
+// console.log(projectViewItem.id)
+// console.log(projectViewItem.tasks)
+// console.log(projectViewItem.users)
 
 const { currentColor } = useStateContext();
   return (
