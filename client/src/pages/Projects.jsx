@@ -53,7 +53,7 @@ const Projects = ({setProjectId}) => {
     },[])
 
 
-  console.log('click')
+  // console.log('click')
 
 
   return (
