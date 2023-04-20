@@ -58,13 +58,15 @@ const Projects = ({setProjectId}) => {
     <div className="m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl">
       <Header category = "Page" title="Projects" />
       <form onSubmit={handleSubmit}>
-        <input name='project' placeholder='Enter Project ID'></input>
-        <input type='radio' name='searchOrDelete' onChange={handleSearchChange} defaultChecked></input>
-        <label> search</label>
-        <input type='radio' name='searchOrDelete'onChange={handleDeleteChange}></input>
-        <label> delete</label>
-        <button type='submit'>Submit</button>
-        <button type='submit' onClick={handleClick}>New Task</button>
+        <div >
+          <input name='project' placeholder='Enter Project ID'></input>
+          <input type='radio' name='searchOrDelete' onChange={handleSearchChange} defaultChecked></input>
+          <label> search</label>
+          <input type='radio' name='searchOrDelete'onChange={handleDeleteChange}></input>
+          <label> delete</label>
+          <button type='submit'>Submit</button>
+          <button type='submit' onClick={handleClick}>New Task</button>
+        </div>
       </form>
       <GridComponent
         
