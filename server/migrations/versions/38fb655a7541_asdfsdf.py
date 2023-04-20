@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <<<<<<< HEAD:server/migrations/versions/a4eaf5e580d8_bitch.py
 <<<<<<< HEAD
 <<<<<<<< HEAD:server/migrations/versions/4ca3337e6b01_models.py
@@ -9,6 +10,9 @@ Create Date: 2023-04-20 17:03:32.437333
 ========
 =======
 =======
+=======
+<<<<<<< HEAD
+>>>>>>> 01b4dbf (adding login, logout, signup)
 <<<<<<<< HEAD:server/migrations/versions/234900326042_blah.py
 >>>>>>> 525026a (adding login, logout, signup):server/migrations/versions/38fb655a7541_asdfsdf.py
 <<<<<<<< HEAD:server/migrations/versions/a4eaf5e580d8_bitch.py
@@ -38,7 +42,17 @@ Revision ID: 38fb655a7541
 Revises: 
 Create Date: 2023-04-20 11:05:06.742474
 >>>>>>>> 637ae10 (adding login, logout, signup):server/migrations/versions/38fb655a7541_asdfsdf.py
+<<<<<<< HEAD
 >>>>>>> 525026a (adding login, logout, signup):server/migrations/versions/38fb655a7541_asdfsdf.py
+=======
+=======
+"""asdfsdf
+
+Revision ID: 38fb655a7541
+Revises: 
+Create Date: 2023-04-20 11:05:06.742474
+>>>>>>> 637ae10 (adding login, logout, signup)
+>>>>>>> 01b4dbf (adding login, logout, signup)
 
 """
 from alembic import op
@@ -46,6 +60,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
+<<<<<<< HEAD
 <<<<<<< HEAD:server/migrations/versions/a4eaf5e580d8_bitch.py
 <<<<<<< HEAD
 <<<<<<<< HEAD:server/migrations/versions/4ca3337e6b01_models.py
@@ -55,6 +70,9 @@ revision = 'a4eaf5e580d8'
 >>>>>>>> b983dfd (trying to link backend to kanban component):server/migrations/versions/a4eaf5e580d8_bitch.py
 =======
 =======
+=======
+<<<<<<< HEAD
+>>>>>>> 01b4dbf (adding login, logout, signup)
 <<<<<<<< HEAD:server/migrations/versions/234900326042_blah.py
 >>>>>>> 525026a (adding login, logout, signup):server/migrations/versions/38fb655a7541_asdfsdf.py
 <<<<<<<< HEAD:server/migrations/versions/a4eaf5e580d8_bitch.py
@@ -68,7 +86,13 @@ revision = '234900326042'
 ========
 revision = '38fb655a7541'
 >>>>>>>> 637ae10 (adding login, logout, signup):server/migrations/versions/38fb655a7541_asdfsdf.py
+<<<<<<< HEAD
 >>>>>>> 525026a (adding login, logout, signup):server/migrations/versions/38fb655a7541_asdfsdf.py
+=======
+=======
+revision = '38fb655a7541'
+>>>>>>> 637ae10 (adding login, logout, signup)
+>>>>>>> 01b4dbf (adding login, logout, signup)
 down_revision = None
 branch_labels = None
 depends_on = None
