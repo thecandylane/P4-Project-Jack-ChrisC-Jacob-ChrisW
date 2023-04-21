@@ -46,6 +46,7 @@ useEffect(()=>{
 // console.log(projectViewItem.tasks)
 // console.log(tasks)
 // console.log(users[0].username)
+// console.log(users[0].username)
 
 // console.log(projectViewItem.name)
 // console.log(projectViewItem.description)
@@ -61,6 +62,7 @@ const { currentColor } = useStateContext();
     .then(resp => resp.json())
     .then(data => data)
     , [])
+  // console.log(params.id)
   // console.log(params.id)
 
   const handleJoinProject = () => {
