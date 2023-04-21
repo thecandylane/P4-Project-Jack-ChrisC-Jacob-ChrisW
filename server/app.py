@@ -435,7 +435,24 @@ api.add_resource(TasksById, '/tasks/<int:id>')
     
 # api.add_resource(TeamById, '/teams/<int:id>')
 
+class UserProjects(Resource):
+    def post(self):
+        data = request.get_json()
+        try:
+            user_project = UserProject(
+                user_id = data['user_id'],
+                project_id = data['project_id']  
+            )
+            
+            db.session.add(user_project)
+            db.session.commit()
+        except Exception as e:
+            return make_response({
+                "errors": [e.__str__()]
+            }, 422)
+        return make_response(user_project.to_dict(),201)
 
+api.add_resource(UserProjects, '/user_projects')
     
 
 
