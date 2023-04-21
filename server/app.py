@@ -8,6 +8,7 @@ from flask_migrate import Migrate
 from flask_bcrypt import Bcrypt
 from flask_session import Session
 from flask_cors import CORS
+from sqlalchemy.orm.exc import NoResultFound
 
 # Local imports
 from config import app, db, api
@@ -18,7 +19,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
 
-CORS(app, supports_credentials=True)
+CORS(app,origins="http://localhost:4000", supports_credentials=True)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 
@@ -76,6 +77,93 @@ def register_user():
         "admin":new_user.admin
 
     })
+@app.route('/login/user', methods=["POST", "GET"])
+def login_demo_user():
+    # Create or fetch the demo user from the database
+    try:
+        demo_user = User.query.filter_by(email="demo@example.com").one()
+    except NoResultFound:
+        # Create the demo user if it doesn't exist
+        demo_user = User(
+            email="demo@example.com",
+            username="demo_user",
+            admin=False,
+            password=bcrypt.generate_password_hash("demopassword").decode('utf-8')
+        )
+        # Add any other necessary fields for your User model
+        db.session.add(demo_user)
+        db.session.commit()
+
+    session['user_id'] = demo_user.id
+    print("Demo Session user_id:", session['user_id'])
+
+    return demo_user.to_dict(), 200
+
+@app.route('/login/admin', methods=["POST", "GET"])
+def login_demo_admin():
+    # Create or fetch the demo user from the database
+    try:
+        demo_user = User.query.filter_by(email="demo_admin@example.com").one()
+    except NoResultFound:
+        # Create the demo user if it doesn't exist
+        demo_user = User(
+            email="demo_admin@example.com",
+            username="demo_admin",
+            admin=True,
+            password=bcrypt.generate_password_hash("demopassword").decode('utf-8')
+        )
+        # Add any other necessary fields for your User model
+        db.session.add(demo_user)
+        db.session.commit()
+
+    session['user_id'] = demo_user.id
+    print("Demo Session user_id:", session['user_id'])
+
+    return demo_user.to_dict(), 200
+
+# @app.route('/login/user', methods=["POST", "GET"])
+# def login_demo_user():
+#     # Create or fetch the demo user from the database
+#     try:
+#         demo_user = User.query.filter_by(email="user_demo@example.com").one()
+#     except NoResultFound:
+#         # Create the demo user if it doesn't exist
+#         demo_user = User(
+#             email="user_demo@example.com",
+#             username="demo_user",
+#             admin=False,
+#             password=bcrypt.generate_password_hash("demopassword").decode('utf-8')
+#         )
+#         # Add any other necessary fields for your User model
+#         db.session.add(demo_user)
+#         db.session.commit()
+
+#     session['user_id'] = demo_user.id
+#     print("Demo Session user_id:", session['user_id'])
+
+#     return demo_user.to_dict(), 200
+
+# @app.route('/login/admin', methods=["POST", "GET"])
+# def login_demo_admin():
+#     # Create or fetch the demo user from the database
+#     try:
+#         demo_user = User.query.filter_by(email="admin_demo@example.com").one()
+#     except NoResultFound:
+#         # Create the demo user if it doesn't exist
+#         demo_user = User(
+#             email="admin_demo@example.com",
+#             username="demo_admin",
+#             admin=True,
+#             password=bcrypt.generate_password_hash("demopassword").decode('utf-8')
+#         )
+#         # Add any other necessary fields for your User model
+#         db.session.add(demo_user)
+#         db.session.commit()
+
+#     session['user_id'] = demo_user.id
+#     print("Demo Session user_id:", session['user_id'])
+
+#     return demo_user.to_dict(), 200
 
 @app.route('/login', methods=["POST", "GET"])
 def login_user():
