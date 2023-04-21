@@ -7,6 +7,7 @@ export default function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
+    const [demo, setDemo] = useState(false)
 
     const handleSignIn = (e) => {
         e.preventDefault();
@@ -33,6 +34,55 @@ export default function Login() {
             console.error('Error fetching data:', error);
         });
     };
+
+    const handleDemo = () => {
+        setDemo(true)
+    }
+    const handleAdmin = () => {
+        console.log('admin')
+        fetch('http://localhost:5555/login/admin', {
+            method: "POST",
+            headers: {"Content-Type": 'application/json'},
+            credentials: 'include'
+        })
+        .then(r => r.json())
+        .then(data => {
+            console.log(data);
+            if (data.id) {
+                navigate('/Home');
+            } else if (data.error) {
+                // Handle error
+                console.log(data.error)
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+        setDemo(false)
+    }
+    
+    const handleUser = () => {
+        console.log('user')
+        fetch('http://localhost:5555/login/user', {
+            method: "POST",
+            headers: {"Content-Type": 'application/json'},
+            credentials: 'include'
+        })
+        .then(r => r.json())
+        .then(data => {
+            console.log(data);
+            if (data.id) {
+                navigate('/Home');
+            } else if (data.error) {
+                // Handle error
+                console.log(data.error)
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+        setDemo(false)
+    }
     
 
     return (
@@ -67,6 +117,17 @@ export default function Login() {
                         <span>REGISTER</span>
                     </Link>
                     </button>
+                    {demo ? 
+                    <>
+                        <button onClick={handleAdmin} className=' w-1/3 my-5 py-2 bg-teal-500 shadow-lg shadow-teal-500/50
+                        hover:shadow-teal-500/40 text-white text-xs font-semibold rounded-lg'>Admin</button>
+                        <button onClick={handleUser} className=' w-1/3 my-5 py-2 bg-teal-500 shadow-lg shadow-teal-500/50
+                        hover:shadow-teal-500/40 text-white text-xs font-semibold rounded-lg'>User</button>
+                    </>
+                    :
+                    <button onClick={handleDemo} className='w-full my-5 py-2 bg-teal-500 shadow-lg shadow-teal-500/50
+                    hover:shadow-teal-500/40 text-white text-xs font-semibold rounded-lg'>DEMO</button>
+                     }
                     {/* <button onClick={handleLogout}>Logout</button> */}
                   
               </form>
