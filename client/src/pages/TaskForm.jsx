@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const TaskForm = () => {
+
+    const navigate = useNavigate()
 
     const [addTask, setAddTask] = useState({
         'title': '',
@@ -49,7 +52,8 @@ const TaskForm = () => {
             .then(data => console.log(data))
             .catch(error => console.error('Error:', error));
             console.log(newTask)
-
+            navigate('/tasks')
+            // window.location.reload()
 
     }
 
