@@ -9,7 +9,6 @@ import { Stacked, Pie, Button, SparkLine } from '../components';
 import { earningData, SparklineAreaData, ecomPieChartData } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 import { useNavigate } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
 
 const Userview = ({userId}) => {
   const [userViewItem, setUserViewItem] = useState({username: ''})
