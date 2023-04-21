@@ -41,6 +41,9 @@ module.exports = {
       backgroundImage: {
         'hero-pattern':
           "url('https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg')",
+
+        'home-page':
+          "url('https://images.pexels.com/photos/796602/pexels-photo-796602.jpeg')",
       },
     },
   },

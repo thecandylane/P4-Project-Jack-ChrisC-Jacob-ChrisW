@@ -12,6 +12,25 @@ const Userview = ({userId}) => {
   const [tasks, setTasks] = useState([{id: ''}])
   const [projects, setProjects] = useState([{id: ''}])
 
+  var content = $(".content p").text();
+
+    if (content == "To do") {
+
+        $(this).css("color", "green");
+    }
+   if (content == "In progress") {
+
+        $(this).css("color", "yellow");
+    }
+   if (content == "testing") {
+
+        $(this).css("color", "orange");
+    }
+    if (content == "Done") {
+
+        $(this).css("color", "red");
+    }
+
   useEffect(()=>{
     fetch(`http://localhost:5555/users/${userId}`)
     .then(res=>res.json())
@@ -34,11 +53,11 @@ const { currentColor } = useStateContext();
         <div className="bg-white
          dark:text-gray-200
           dark:bg-secondary-dark-bg
-           h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repeat bg-cover bg-center">
+           h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-home-page bg-no-repeat bg-cover bg-center">
             <div className="flex justify-between items-center">
               <div>
-                <p className="font-bold text-gray-400">Earnings</p>
-                <p className= "text-2xl">$63,448.78</p>
+                <p className="font-bold text-gray-400">{userId}</p>
+                <p className= "text-2xl text-white drop-shadow-xl">Welcome Back</p>
 
               </div>
 
