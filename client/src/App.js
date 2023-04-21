@@ -20,7 +20,6 @@ import ProjectForm from './ProjectForm';
 const App = () => {
     const { activeMenu, themeSettings, setThemeSettings, currentColor, currentMode } = useStateContext();
     const [projectId, setProjectId] = useState()
-    const [taskId, setTaskId]= useState()
     const [userId, setUserId]= useState()
     
 
@@ -75,7 +74,7 @@ const App = () => {
                     <Route path="/home" element={<Home />} />
 
                     {/* Products */}
-                    <Route path="/tasks" element={<Tasks setTaskId={setTaskId}/>} />
+                    <Route path="/tasks" element={<Tasks />} />
 
                     {/* <Route path="/tasks/params.id" element={<Tasks />} /> */}
                     <Route path="/users" element={<Users setUserId={setUserId}/>} />
@@ -101,7 +100,7 @@ const App = () => {
                     {/* {extra views} */}
                     <Route path="/projects/:id" element={<Projectview projectId={projectId}/>} />
                     <Route path="/tasks/:id" element={<Taskview />} />
-                    <Route path="/users/:id" element={<Userview />} />
+                    <Route path="/users/:id" element={<Userview userId={userId}/>} />
                     <Route path="/signup" element={<Signup />} />
                     <Route path='/task-form' element={<TaskForm/>}/>
                     <Route path='/project-form' element={<ProjectForm/>} />
