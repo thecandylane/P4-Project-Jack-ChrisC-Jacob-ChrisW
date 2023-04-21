@@ -83,6 +83,7 @@ const Projects = ({setProjectId}) => {
         {projectsGrid.map((item, index) => (
           <ColumnDirective key={index} {...item}/>
         ))}
+
         </ColumnsDirective>
         <Inject services={[Page, Toolbar, Selection, Edit, Sort, Filter, Search]}/>
       </GridComponent>

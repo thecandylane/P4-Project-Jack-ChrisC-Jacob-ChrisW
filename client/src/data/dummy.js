@@ -45,20 +45,20 @@ export const gridOrderStatus = (props) => (
 
 export const kanbanGrid = [
   { headerText: 'To Do',
-    keyField: 'Open',
+    keyField: 'todo',
     allowToggle: true },
 
   { headerText: 'In Progress',
-    keyField: 'InProgress',
+    keyField: 'inprogress',
     allowToggle: true },
 
   { headerText: 'Testing',
-    keyField: 'Testing',
+    keyField: 'testing',
     allowToggle: true,
     isExpanded: false },
 
   { headerText: 'Done',
-    keyField: 'Close',
+    keyField: 'done',
     allowToggle: true },
 ];
 const gridEmployeeProfile = (props) => (
