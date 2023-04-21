@@ -126,6 +126,9 @@ const { currentColor } = useStateContext();
           ))}
 
         </div>
+        <div className="mt-10 flex gap flex-wrap justify-center">
+
+        </div>
 
       </div>
 
