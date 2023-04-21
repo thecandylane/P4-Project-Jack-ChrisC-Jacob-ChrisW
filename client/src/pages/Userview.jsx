@@ -16,6 +16,25 @@ const Userview = ({userId}) => {
   const [projects, setProjects] = useState([{id: ''}])
   const navigate = useNavigate()
 
+  var content = $(".content p").text();
+
+    if (content == "To do") {
+
+        $(this).css("color", "green");
+    }
+   if (content == "In progress") {
+
+        $(this).css("color", "yellow");
+    }
+   if (content == "testing") {
+
+        $(this).css("color", "orange");
+    }
+    if (content == "Done") {
+
+        $(this).css("color", "red");
+    }
+
   useEffect(()=>{
     fetch(`http://localhost:5555/users/${userId}`)
     .then(res=>res.json())
@@ -42,7 +61,6 @@ const { currentColor } = useStateContext();
             <div className="flex justify-between items-center">
               <div>
                 <p className="font-bold text-gray-400">Earnings</p>
-                <p className= "text-2xl">$63,448.78</p>
                 <p className= "text-2xl text-white" >{userViewItem.username}</p>
 
               </div>
