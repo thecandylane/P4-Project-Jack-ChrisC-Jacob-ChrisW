@@ -38,7 +38,7 @@ const { currentColor } = useStateContext();
             <div className="flex justify-between items-center">
               <div>
                 <p className="font-bold text-gray-400">Earnings</p>
-                <p className= "text-2xl">$63,448.78</p>
+                <p className= "text-2xl text-white" >{userViewItem.username}</p>
 
               </div>
 
@@ -47,7 +47,7 @@ const { currentColor } = useStateContext();
               <Button 
               color="white"
               bgColor={currentColor}
-              text="Download"
+              text="Back to users"
               borderRadius="10px"
               size="md"
 
