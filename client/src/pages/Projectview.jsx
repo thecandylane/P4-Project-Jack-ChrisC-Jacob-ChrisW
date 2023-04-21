@@ -74,7 +74,7 @@ const { currentColor } = useStateContext();
       headers:{
         "Content-Type":'application/json'
       },
-      body:JSON.stringify({id, currentUserId})
+      body:JSON.stringify({"project_id": id, "user_id": currentUserId})
     })
   }
 
