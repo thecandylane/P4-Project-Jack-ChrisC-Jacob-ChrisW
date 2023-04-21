@@ -1,8 +1,10 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 
 
 const ProjectForm = () => {
+    const navigate = useNavigate()
     const [Project, setProject] = useState({
         'name':'',
         'description':''
@@ -28,6 +30,8 @@ const ProjectForm = () => {
         })
         .then(r => r.json())
         .then(data => console.log(data))
+        navigate('/projects')
+        // window.location.reload()
     }
 
     return(

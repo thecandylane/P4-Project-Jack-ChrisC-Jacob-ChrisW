@@ -56,8 +56,13 @@ const { currentColor } = useStateContext();
            h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-home-page bg-no-repeat bg-cover bg-center">
             <div className="flex justify-between items-center">
               <div>
+<<<<<<< HEAD
                 <p className="font-bold text-gray-400">{userId}</p>
                 <p className= "text-2xl text-white drop-shadow-xl">Welcome Back</p>
+=======
+                <p className="font-bold text-gray-400">Earnings</p>
+                <p className= "text-2xl text-white" >{userViewItem.username}</p>
+>>>>>>> origin
 
               </div>
 
@@ -66,7 +71,7 @@ const { currentColor } = useStateContext();
               <Button 
               color="white"
               bgColor={currentColor}
-              text="Download"
+              text="Back to users"
               borderRadius="10px"
               size="md"
 

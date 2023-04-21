@@ -11,6 +11,7 @@ import { useStateContext } from '../contexts/ContextProvider';
 const Projectview = ({projectId}) => {
   const [projectViewItem, setProjectViewItem] = useState({name: ""})
   const [tasks, setTasks] = useState([{id: ''}])
+  const [users, setUsers] = useState([{id: ''}])
   const navigate = useNavigate();
   
 
@@ -20,12 +21,14 @@ useEffect(()=>{
   .then((data)=>{
     setProjectViewItem(data)
     setTasks(data.tasks)
+    setUsers(data.users)
   })
 },[])
 
-console.log(projectId)
-console.log(projectViewItem.tasks)
-console.log(tasks)
+// console.log(projectId)
+// console.log(projectViewItem.tasks)
+// console.log(tasks)
+// console.log(users[0].username)
 
 // console.log(projectViewItem.name)
 // console.log(projectViewItem.description)
@@ -41,7 +44,7 @@ const { currentColor } = useStateContext();
     .then(resp => resp.json())
     .then(data => data)
     , [])
-  console.log(params.id)
+  // console.log(params.id)
 
   return (
     <div className="mt-12">
@@ -59,8 +62,8 @@ const { currentColor } = useStateContext();
 
             </div>
             <div className="mt-6">
-              <button type="button" onclick={()=> navigate('/projects')} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2" >ProjectList</button>
-              <button type="button" onclick={()=> navigate('/projects')} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" >Task List</button>
+              <button type="button" onClick={()=> navigate('/projects')} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2" >ProjectList</button>
+              <button type="button" onClick={()=> navigate('/tasks')} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" >Task List</button>
 
 
             </div>
@@ -90,7 +93,7 @@ const { currentColor } = useStateContext();
             </div>
               <p className='mt-3'>
                 <span className="text-lg font-semibold">
-                  {item.description}
+                  {item.title}
                 </span>
                 {/* <span className={`text-sm text-red ml-2`}>
                   {item.percentage}
@@ -98,8 +101,22 @@ const { currentColor } = useStateContext();
 
               </p>
               <div className="flex flex-row">
-                <p className="text-sm text-gray-400 mt-1 mr-4">{item.title}</p>
-                <p className="text-sm text-gray-400 mt-1">User</p>
+                <div className="text-sm text-gray-400 mt-1 mr-4">{item.description}</div>
+                <div className="text-sm text-gray-400 mt-1">
+                  {users.map((item)=> (
+                    <div
+                    key={item.username}
+                    className="bg-white
+                    dark:text-gray-200
+                    dark:bg-secondary-dark-bg
+                    md:w-35
+                    p-4 pt-9 rounded-2xl
+                    border"
+                    >
+                      {item.username}
+                    </div>
+                  ))}
+                </div>
 
               </div>
               

@@ -10,10 +10,9 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import avatar from '../data/avatar.jpg';
 import { Cart, Chat, Notification, UserProfile } from '.';
 import { useStateContext } from '../contexts/ContextProvider';
-import handleLogout from '../pages/Login';
 
 const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
-
+  
 
 
   
@@ -38,6 +37,16 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
 
 const Navbar = () => {
   const { activeMenu, setActiveMenu, handleClick, isClicked, setIsClicked, screenSize, setScreenSize, currentColor } = useStateContext();
+  
+  function handleLogout(){
+    fetch('http://localhost:5555/logout', {
+        method:"POST",
+        credentials: 'include'
+    })
+    .then(r => r.json())
+    .then(data => console.log(data))
+    window.location.reload()
+  }
 
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
@@ -77,10 +86,9 @@ const Navbar = () => {
         <NavButton
           title="LogOut"
           // dotColor="#03C9D7"
-          customFunc={() => handleClick('logout')}
+          customFunc={() => handleLogout()}
           color={currentColor}
           icon={<FiLogOut />}
-          onClick={handleLogout}
         />
         <TooltipComponent
           content="Profile"
