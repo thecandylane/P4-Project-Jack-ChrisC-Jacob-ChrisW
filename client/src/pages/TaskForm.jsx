@@ -61,29 +61,29 @@ const TaskForm = () => {
         <form className='max-w-[400px] w-full mx-auto rounded-lg bg-[#0f172a] p-8 px-8' onSubmit={(e) => handleAddTask(e)} >
             <h2 className='text-4xl text-white font-bold text-center'>TASK FORM</h2>
             <div className='flex flex-col text-gray-400 py-2'>
-                <input style={{ 'padding': '5px' }} type='text' name='title' onChange={handleChange} placeholder='Task title'></input>
+                <input className="rounded-lg bg-gray-700 mt-2 p-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none" style={{ 'padding': '5px' }} type='text' name='title' onChange={handleChange} placeholder='Task title'></input>
             </div>
             <div className='flex flex-col text-gray-400 py-2'>
-                <input style={{ 'padding': '5px' }} type='text' name='description' onChange={handleChange} placeholder='Task description'></input>
+                <input className="rounded-lg bg-gray-700 mt-2 p-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none" style={{ 'padding': '5px' }} type='text' name='description' onChange={handleChange} placeholder='Task description'></input>
             </div>
             <div className='flex flex-col text-gray-400 py-2'>
 
             </div>
             <div className='flex flex-col text-gray-400 py-2'>
-                <input style={{ 'padding': '5px' }} type='date' name='due_date' onChange={handleChange} placeholder='Task due date'></input>
+                <input className="rounded-lg bg-gray-700 mt-2 p-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none" style={{ 'padding': '5px' }} type='date' name='due_date' onChange={handleChange} placeholder='Task due date'></input>
 
             </div>
             <div className='flex flex-col text-gray-400 py-2'>
-                <input style={{ 'padding': '5px' }} type='number' name='user_id' onChange={handleChange} placeholder='User ID'></input>
+                <input className="rounded-lg bg-gray-700 mt-2 p-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none" style={{ 'padding': '5px' }} type='number' name='user_id' onChange={handleChange} placeholder='User ID'></input>
 
             </div>
             <div className='flex flex-col text-gray-400 py-2'>
-                <input style={{ 'padding': '5px' }} type='number' name='project_id' onChange={handleChange} placeholder='Project ID'></input>
+                <input className="rounded-lg bg-gray-700 mt-2 p-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none" style={{ 'padding': '5px' }} type='number' name='project_id' onChange={handleChange} placeholder='Project ID'></input>
 
             </div>
             <div className=' flex flex-row text-gray-400 py-2'>
                 <div>
-                <select style={{ 'padding': '5px' }} name="status" defaultValue='' onChange={handleChange}>
+                <select className="rounded-lg bg-gray-700 mt-2 p-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none" style={{ 'padding': '5px' }} name="status" defaultValue='' onChange={handleChange}>
                     <option value="" disabled >Select Status</option>
                     <option value="todo">To-Do</option>
                     <option value="inprogress">In Progress</option>
@@ -93,7 +93,7 @@ const TaskForm = () => {
 
                 </div>
                 <div className='px-10'>
-                    <input style={{ 'width': '90px', 'padding': '5px' }} type="number" name="priority" min="1" max="10" placeholder='Priority' onChange={handleChange}></input>
+                    <input className="rounded-lg bg-gray-700 mt-2 p-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none" style={{ 'width': '90px', 'padding': '5px' }} type="number" name="priority" min="1" max="10" placeholder='Priority' onChange={handleChange}></input>
 
                 </div>
 

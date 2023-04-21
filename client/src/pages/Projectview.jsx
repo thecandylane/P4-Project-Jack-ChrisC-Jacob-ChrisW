@@ -53,7 +53,7 @@ const { currentColor } = useStateContext();
             <div className="flex justify-between items-center">
               <div>
                 <p className="font-bold text-white">Project</p>
-                <p className= "text-2xl text-white font-bold">{projectViewItem.name}</p>
+                <p className= "text-5xl text-white font-bold drop-shadow-lg">{projectViewItem.name}</p>
 
               </div>
 
@@ -77,12 +77,17 @@ const { currentColor } = useStateContext();
             p-4 pt-9 rounded-2xl
             border"
             >
+            <div className="flex flex-row">
               <button type="button" 
-              className="bg-[#E5FAFB] text-2xl opacity-0.9 rounded-full p-4 hover:drop-shadow-xl">
+              className="bg-white border text-5xl opacity-0.9 rounded-full p-4 hover:drop-shadow-xl mr-10">
                 <BiTask/>
 
 
               </button>
+              <div>
+                {item.status}
+              </div>
+            </div>
               <p className='mt-3'>
                 <span className="text-lg font-semibold">
                   {item.description}

@@ -36,10 +36,10 @@ const ProjectForm = () => {
             <form className='max-w-[400px] w-full mx-auto rounded-lg bg-[#0f172a] p-8 px-8'onSubmit={handleSubmit}>
             <h2 className='text-4xl text-white font-bold text-center'>PROJECT FORM</h2>
                 <div className='flex flex-col text-gray-400 py-2'>
-                    <input name="name" type="text" onChange={(e) => handleChange(e)} placeholder="Enter Project Name"></input>
+                    <input className="rounded-lg bg-gray-700 mt-2 p-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none" name="name" type="text" onChange={(e) => handleChange(e)} placeholder="Enter Project Name"></input>
                 </div>
                 <div className='flex flex-col text-gray-400 py-2'>
-                    <input name="description" type="text" onChange={(e) => handleChange(e)} placeholder="Enter Project Description"></input>
+                    <input className="rounded-lg bg-gray-700 mt-2 p-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none" name="description" type="text" onChange={(e) => handleChange(e)} placeholder="Enter Project Description"></input>
                 </div>
                
                 
