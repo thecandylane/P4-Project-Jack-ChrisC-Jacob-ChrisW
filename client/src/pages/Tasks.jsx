@@ -41,9 +41,9 @@ const Tasks = () => {
     <div className="m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl">
       <Header category = "Page" title="Tasks" />
       <form>
-        <input name='task' placeholder='Enter Task ID' onChange={handleSearchChange}></input>
-        <button type='submit' onClick={handleDelete}>Delete</button>
-        <button type='submit' onClick={handleClick}>New Task</button>
+        <input className="border border-black-200 mr-2" name='task' placeholder='Enter Task ID' onChange={handleSearchChange}></input>
+        <button class="bg-transparent hover:bg-blue-500 front-semibold hover:text-white px-4 border border-blue-500 rounded mr-2" type='submit' onClick={handleDelete}>Delete</button>
+        <button class="bg-transparent hover:bg-blue-500 front-semibold hover:text-white px-4 border border-blue-500 rounded" type='submit' onClick={handleClick}>New Task</button>
       </form>
       <GridComponent
         id="gridcomp"

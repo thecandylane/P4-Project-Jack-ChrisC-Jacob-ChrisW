@@ -48,12 +48,12 @@ const Users = ({setUserId}) => {
       <Header category = "Page" title="Users" />
       <form onSubmit={handleSubmit}>
         <div >
-          <input name='user' placeholder='Enter Project ID'></input>
+          <input className="border border-black-200 mr-2" name='user' placeholder='Enter Project ID'></input>
           <input type='radio' name='searchOrDelete' onChange={handleSearchChange} defaultChecked></input>
-          <label> search</label>
+          <label className="mr-2"> Search</label>
           <input type='radio' name='searchOrDelete' onChange={handleDeleteChange}></input>
-          <label> delete</label>
-          <button type='submit'>Submit</button>
+          <label className="mr-2"> Delete</label>
+          <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold front-semibold hover:text-white px-4 border border-blue-500 rounded" type='submit'>Submit</button>
         </div>
       </form>
       <GridComponent

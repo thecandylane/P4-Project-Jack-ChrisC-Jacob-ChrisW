@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
-import { FiShoppingCart } from 'react-icons/fi';
+import { FiShoppingCart, FiLogOut } from 'react-icons/fi';
+import { CgProfile } from 'react-icons/cg'
 import { BsChatLeft } from 'react-icons/bs';
 import { RiNotification3Line } from 'react-icons/ri';
 import { MdKeyboardArrowDown } from 'react-icons/md';
@@ -9,8 +10,13 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import avatar from '../data/avatar.jpg';
 import { Cart, Chat, Notification, UserProfile } from '.';
 import { useStateContext } from '../contexts/ContextProvider';
+import handleLogout from '../pages/Login';
 
 const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
+
+
+
+  
   <TooltipComponent content={title} position="BottomCenter">
     <button type="button" onClick={customFunc}
     style={{ color }}
@@ -55,25 +61,26 @@ const Navbar = () => {
       {<AiOutlineMenu />} />
 
       <div className="flex">
-        <NavButton
+        {/* <NavButton
           title="Cart"
           customFunc={() => handleClick('cart')}
           color={currentColor}
           icon={<FiShoppingCart />}
-        />
-        <NavButton
+        /> */}
+        {/* <NavButton
           title="Chat"
           dotColor="#03C9D7"
           customFunc={() => handleClick('chat')}
           color={currentColor}
           icon={<BsChatLeft />}
-        />
+        /> */}
         <NavButton
-          title="Notifications"
-          dotColor="#03C9D7"
-          customFunc={() => handleClick('notification')}
+          title="LogOut"
+          // dotColor="#03C9D7"
+          customFunc={() => handleClick('logout')}
           color={currentColor}
-          icon={<RiNotification3Line />}
+          icon={<FiLogOut />}
+          onClick={handleLogout}
         />
         <TooltipComponent
           content="Profile"
@@ -81,13 +88,16 @@ const Navbar = () => {
         >
           <div className = "flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
           onClick={() => handleClick('userProfile')}>
-            <img
-              className="rounded-full w-8 h-8" 
-              src={avatar}
-            />
+            <span className="rounded-full w-8 h-8 text-3xl" > 
+              <CgProfile />
+
+            </span>
+              
+              
+            
             <p>
               <span className="text-gray-400 text-14">Hi, </span> {" "}
-              <span className='text-gray-400 font-bold m1-1 text-14'>Michael</span>
+              <span className='text-gray-400 font-bold m1-1 text-14'>User</span>
             </p>
             <MdKeyboardArrowDown className="text-gray-400 text-14"/>
           

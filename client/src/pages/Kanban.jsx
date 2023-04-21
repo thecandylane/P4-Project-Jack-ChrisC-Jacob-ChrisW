@@ -34,6 +34,7 @@ const Kanban = () => {
         dataSource={taskItem} 
         cardSettings={{ contentField: 'description', headerField: 'title' }}
         keyField="status"
+        enablePersistence
         
       
       >

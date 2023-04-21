@@ -14,7 +14,7 @@ import TaskForm from './pages/TaskForm';
 import { useStateContext } from './contexts/ContextProvider';
 import './App.css'
 import { Theme } from '@syncfusion/ej2-react-charts';
-import ProjectForm from './ProjectForm';
+import ProjectForm from './pages/ProjectForm';
 
 
 const App = () => {
