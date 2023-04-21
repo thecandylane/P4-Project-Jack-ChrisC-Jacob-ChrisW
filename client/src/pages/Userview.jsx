@@ -41,14 +41,13 @@ const { currentColor } = useStateContext();
            h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-home-page bg-no-repeat bg-cover bg-center">
             <div className="flex justify-between items-center">
               <div>
-                <p className="font-bold text-gray-400">{userId}</p>
+                <p className="font-bold text-gray-400">{userViewItem.username}</p>
                 <p className= "text-2xl text-white drop-shadow-xl">Welcome Back</p>
 
               </div>
 
             </div>
             <div className="mt-6">
-              <button type="button" onClick={()=> navigate('/users')} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2" >Users List</button>
               <button type="button" onClick={()=> navigate('/users')} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2" >Users List</button>
             </div>
 
