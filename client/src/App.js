@@ -98,7 +98,7 @@ const App = () => {
                     <Route path="/stacked" element={<Stacked />} />
 
                     {/* {extra views} */}
-                    <Route path="/projects/:id" element={<Projectview projectId={projectId}/>} />
+                    <Route path="/projects/:id" element={<Projectview projectId={projectId} projectViewItem={projectViewItem} setProjectViewItem={setProjectViewItem} />} />
                     <Route path="/tasks/:id" element={<Taskview />} />
                     <Route path="/users/:id" element={<Userview userId={userId}/>} />
                     <Route path="/signup" element={<Signup />} />
