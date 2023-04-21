@@ -2,8 +2,9 @@ import React from 'react';
 import { AiOutlineCalendar, AiOutlineShoppingCart, AiOutlineAreaChart, AiOutlineBarChart, AiOutlineStock } from 'react-icons/ai';
 import { FiShoppingBag, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, FiShoppingCart } from 'react-icons/fi';
 import { BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft } from 'react-icons/bs';
-import { BiColorFill } from 'react-icons/bi';
+import { BiColorFill, BiHome } from 'react-icons/bi';
 import { IoMdContacts } from 'react-icons/io';
+import { VscTasklist } from 'react-icons/vsc';
 import { RiContactsLine, RiStockLine } from 'react-icons/ri';
 import { MdOutlineSupervisorAccount } from 'react-icons/md';
 import { HiOutlineRefresh } from 'react-icons/hi';
@@ -487,7 +488,7 @@ export const links = [
     links: [
       {
         name: 'Home',
-        icon: <FiShoppingBag />,
+        icon: <BiHome />,
       },
     ],
   },
@@ -497,7 +498,7 @@ export const links = [
     links: [
       {
         name: 'tasks',
-        icon: <AiOutlineShoppingCart />,
+        icon: <VscTasklist />,
       },
       {
         name: 'users',
