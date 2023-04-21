@@ -9,31 +9,13 @@ import { Stacked, Pie, Button, SparkLine } from '../components';
 import { earningData, SparklineAreaData, ecomPieChartData } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Userview = ({userId}) => {
   const [userViewItem, setUserViewItem] = useState({username: ''})
   const [tasks, setTasks] = useState([{id: ''}])
   const [projects, setProjects] = useState([{id: ''}])
   const navigate = useNavigate()
-
-  // var content = $(".content p").text();
-
-  //   if (content == "To do") {
-
-  //       $(this).css("color", "green");
-  //   }
-  //  if (content == "In progress") {
-
-  //       $(this).css("color", "yellow");
-  //   }
-  //  if (content == "testing") {
-
-  //       $(this).css("color", "orange");
-  //   }
-  //   if (content == "Done") {
-
-  //       $(this).css("color", "red");
-  //   }
 
   useEffect(()=>{
     fetch(`http://localhost:5555/users/${userId}`)
@@ -67,6 +49,7 @@ const { currentColor } = useStateContext();
 
             </div>
             <div className="mt-6">
+              <button type="button" onClick={()=> navigate('/users')} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2" >Users List</button>
               <button type="button" onClick={()=> navigate('/users')} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2" >Users List</button>
             </div>
 
