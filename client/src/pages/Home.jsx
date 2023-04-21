@@ -12,14 +12,20 @@ import { useNavigate } from 'react-router-dom';
 const Home = () => {
   const { currentColor } = useStateContext();
   const navigate = useNavigate()
-  const [currentUser, setCurrentUser] = useState({tasks:[]})
+  const [currentUser, setCurrentUser] = useState({projects:[]})
+  const [tasks, setTasks] = useState([])
+  const [projects, setProjects] = useState([])
   useEffect(() => {
     fetch('http://localhost:5555/@me',{
       'credentials':'include'
     })
     .then(r => {
       if (r.ok){
-      r.json().then(data => setCurrentUser(data))
+      r.json().then((data) => {
+        setCurrentUser(data)
+        setProjects(data.projects)
+        setTasks(data.tasks)
+      })
     } else{
       navigate('/')
     }
@@ -27,7 +33,10 @@ const Home = () => {
     })
   },[])
 
-  console.log(currentUser.tasks)
+  console.log(currentUser)
+  console.log(currentUser.projects)
+  console.log(currentUser.setTasks)
+  
 
 
 
@@ -54,7 +63,7 @@ const Home = () => {
 
         </div>
         <div className="flex m-3 flex-wrap justify-center gap-1 items-center">
-          {currentUser.tasks.map((item) => (
+          {tasks.map((item) => (
             <div
             key={item.id}
             className="bg-white
@@ -77,6 +86,31 @@ const Home = () => {
 
           ))}
 
+
+        </div>
+        <div>
+        {projects.map((item) => (
+            <div
+            key={item.name}
+            className="bg-white
+            dark:text-gray-200
+            dark:bg-secondary-dark-bg
+            md:w-56
+            p-4 pt-9 rounded-2xl"
+            >
+            <div>
+              <button type="button"className="bg-white border text-5xl opacity-0.9 rounded-full p-4 hover:drop-shadow-xl mr-10">
+                <BiTask/>
+
+
+              </button>
+            </div>
+
+              <p className="text-sm text-black mt-1">{item.name}</p>
+
+            </div>
+
+          ))}
         </div>
 
       </div>

@@ -50,7 +50,7 @@ def get_current_user():
     #     'password':user.password
 
     # }), 200
-    return user.to_dict(), 200
+    return user.to_dict(rules=('projects',)), 200
 
 
 @app.route('/register', methods=["POST"])
