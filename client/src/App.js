@@ -104,7 +104,7 @@ const App = () => {
                     <Route path="/users/:id" element={<Userview />} />
                     <Route path="/signup" element={<Signup />} />
                     <Route path='/task-form' element={<TaskForm/>}/>
-                    <Route path='/project-from' element={<ProjectForm/>} />
+                    <Route path='/project-form' element={<ProjectForm/>} />
                     
                 </Routes>
              </div>
