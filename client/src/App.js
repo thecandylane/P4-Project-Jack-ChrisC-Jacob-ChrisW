@@ -14,6 +14,7 @@ import TaskForm from './pages/TaskForm';
 import { useStateContext } from './contexts/ContextProvider';
 import './App.css'
 import { Theme } from '@syncfusion/ej2-react-charts';
+import ProjectForm from './ProjectForm';
 
 
 const App = () => {
@@ -103,6 +104,7 @@ const App = () => {
                     <Route path="/users/:id" element={<Userview />} />
                     <Route path="/signup" element={<Signup />} />
                     <Route path='/task-form' element={<TaskForm/>}/>
+                    <Route path='/project-from' element={<ProjectForm/>} />
                     
                 </Routes>
              </div>
