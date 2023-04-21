@@ -10,7 +10,7 @@ import Projectview from './pages/Projectview';
 import Userview from './pages/Userview';
 import Taskview from './pages/Taskview';
 import Signup from './pages/Signup';
-
+import TaskForm from './pages/TaskForm';
 import { useStateContext } from './contexts/ContextProvider';
 import './App.css'
 import { Theme } from '@syncfusion/ej2-react-charts';
@@ -98,10 +98,11 @@ const App = () => {
                     <Route path="/stacked" element={<Stacked />} />
 
                     {/* {extra views} */}
-                    <Route path="/projects/:id" element={<Projectview />} />
+                    <Route path="/projects/:id" element={<Projectview projectId={projectId}/>} />
                     <Route path="/tasks/:id" element={<Taskview />} />
                     <Route path="/users/:id" element={<Userview />} />
                     <Route path="/signup" element={<Signup />} />
+                    <Route path='/task-form' element={<TaskForm/>}/>
                     
                 </Routes>
              </div>

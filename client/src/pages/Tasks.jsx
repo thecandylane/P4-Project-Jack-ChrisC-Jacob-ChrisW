@@ -9,60 +9,42 @@ import { useParams, useNavigate } from 'react-router-dom'
 
 const Tasks = () => {
   const [tasks, setTasks] = useState({})
-  // const navigate = useNavigate()
+  const [taskId, setTaskId]= useState()
+  const navigate = useNavigate()
 
-  // const [projectItem, setProjectItem]= useState({})
-  // const [deleteChange, setDeleteChange] = useState('search')
+  function handleSearchChange(e){
+    setTaskId(e.target.value)
+  }
 
-  // function handleClick(){
-  //   navigate('/')
-  // }
+  function handleClick(){
+    navigate('/task-form')
+  }
 
-  // function handleSearchChange(e){
-  //   setDeleteChange('search')
-  // }
+  function handleDelete(e){
+    e.preventDefault()
+    console.log(taskId)
+      fetch(`http://localhost:4000/tasks/${taskId}`, {
+        method: "DELETE",
+      })
+      .then(res => res.json())
+      .then(res => console.log(res))
+      window.location.reload(false)
+    }
 
-  // function handleDeleteChange(e){
-  //   setDeleteChange('delete')
-  // }
-
-  // function handleSubmit(e){
-  //   e.preventDefault()
-  //   // console.log('submit click')
-  //   // console.log(e.target.project.value)
-  //   // console.log(deleteChange)
-  //   if (deleteChange === 'search'){
-  //     setProjectId(e.target.project.value)
-  //     navigate(`/projects/${e.target.project.value}`)
-  //   }
-  //   else if(deleteChange === 'delete'){
-  //     fetch(`http://localhost:4000/projects/${e.target.project.value}`, {
-  //       method: "DELETE",
-  //     })
-  //     .then(res => res.json())
-  //     .then(res => console.log(res))
-  //     window.location.reload(false)
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   fetch('http://127.0.0.1:5555/tasks')
-  //   .then(res=>res.json())
-  //   .then(data=>setTasks(data))
-  // }, [])
+  useEffect(() => {
+    fetch('http://127.0.0.1:5555/tasks')
+    .then(res=>res.json())
+    .then(data=>setTasks(data))
+  }, [])
 
   return (
     <div className="m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl">
       <Header category = "Page" title="Tasks" />
-      {/* <form onSubmit={handleSubmit}>
-        <input name='project' placeholder='Enter Project ID'></input>
-        <input type='radio' name='searchOrDelete' onChange={handleSearchChange} defaultChecked></input>
-        <label> search</label>
-        <input type='radio' name='searchOrDelete'onChange={handleDeleteChange}></input>
-        <label> delete</label>
-        <button type='submit'>Submit</button>
+      <form>
+        <input name='task' placeholder='Enter Task ID' onChange={handleSearchChange}></input>
+        <button type='submit' onClick={handleDelete}>Delete</button>
         <button type='submit' onClick={handleClick}>New Task</button>
-      </form> */}
+      </form>
       <GridComponent
         id="gridcomp"
         dataSource={tasks}

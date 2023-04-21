@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <<<<<<< HEAD:server/migrations/versions/234900326042_blah.py
 <<<<<<<< HEAD:server/migrations/versions/234900326042_blah.py
 <<<<<<<< HEAD:server/migrations/versions/52fe35479976_remake.py
@@ -14,6 +15,39 @@ Create Date: 2023-04-20 17:33:22.005949
 
 Revision ID: 4ca3337e6b01
 Revises: 
+=======
+<<<<<<< HEAD
+<<<<<<<< HEAD:server/migrations/versions/4ca3337e6b01_models.py
+"""models
+
+Revision ID: 4ca3337e6b01
+Revises: 
+Create Date: 2023-04-20 17:03:32.437333
+========
+"""bitch
+
+Revision ID: a4eaf5e580d8
+Revises: 
+Create Date: 2023-04-20 15:24:20.645394
+>>>>>>>> b983dfd (trying to link backend to kanban component):server/migrations/versions/a4eaf5e580d8_bitch.py
+=======
+<<<<<<< HEAD:server/migrations/versions/234900326042_blah.py
+<<<<<<<< HEAD:server/migrations/versions/234900326042_blah.py
+<<<<<<<< HEAD:server/migrations/versions/52fe35479976_remake.py
+"""remake
+
+Revision ID: 52fe35479976
+Revises: 
+Create Date: 2023-04-20 17:33:22.005949
+========
+"""blah
+=======
+"""models
+>>>>>>> fcf0e9a (projects/projectsview):server/migrations/versions/4ca3337e6b01_models.py
+
+Revision ID: 4ca3337e6b01
+Revises: 
+>>>>>>> origin
 <<<<<<< HEAD:server/migrations/versions/234900326042_blah.py
 Create Date: 2023-04-20 12:50:38.756619
 >>>>>>>> b1f2191 (struggle bug):server/migrations/versions/234900326042_blah.py
@@ -27,6 +61,10 @@ Create Date: 2023-04-20 11:05:06.742474
 =======
 Create Date: 2023-04-20 17:03:32.437333
 >>>>>>> fcf0e9a (projects/projectsview):server/migrations/versions/4ca3337e6b01_models.py
+<<<<<<< HEAD
+=======
+>>>>>>> 6e3b93c (projects/projectsview)
+>>>>>>> origin
 
 """
 from alembic import op
@@ -34,11 +72,26 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
+<<<<<<< HEAD
 <<<<<<< HEAD:server/migrations/versions/234900326042_blah.py
 <<<<<<<< HEAD:server/migrations/versions/234900326042_blah.py
 <<<<<<<< HEAD:server/migrations/versions/52fe35479976_remake.py
 revision = '52fe35479976'
 ========
+=======
+<<<<<<< HEAD
+<<<<<<<< HEAD:server/migrations/versions/4ca3337e6b01_models.py
+revision = '4ca3337e6b01'
+========
+revision = 'a4eaf5e580d8'
+>>>>>>>> b983dfd (trying to link backend to kanban component):server/migrations/versions/a4eaf5e580d8_bitch.py
+=======
+<<<<<<< HEAD:server/migrations/versions/234900326042_blah.py
+<<<<<<<< HEAD:server/migrations/versions/234900326042_blah.py
+<<<<<<<< HEAD:server/migrations/versions/52fe35479976_remake.py
+revision = '52fe35479976'
+========
+>>>>>>> origin
 revision = '234900326042'
 >>>>>>>> b1f2191 (struggle bug):server/migrations/versions/234900326042_blah.py
 ========
@@ -47,6 +100,10 @@ revision = '38fb655a7541'
 =======
 revision = '4ca3337e6b01'
 >>>>>>> fcf0e9a (projects/projectsview):server/migrations/versions/4ca3337e6b01_models.py
+<<<<<<< HEAD
+=======
+>>>>>>> 6e3b93c (projects/projectsview)
+>>>>>>> origin
 down_revision = None
 branch_labels = None
 depends_on = None

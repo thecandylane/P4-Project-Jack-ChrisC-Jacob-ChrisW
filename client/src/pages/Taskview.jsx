@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { BsCurrencyDollar } from 'react-icons/bs';
 import { GoPrimitiveDot } from 'react-icons/go';
 
@@ -7,7 +7,27 @@ import { Stacked, Pie, Button, SparkLine } from '../components';
 import { earningData, SparklineAreaData, ecomPieChartData } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 
-const Taskview = () => {
+const Taskview = ({taskId}) => {
+  const [taskViewItem, setTaskViewItem] = useState({title: ""})
+
+  useEffect(()=>{
+    fetch(`http://localhost:5555/tasks/${taskId}`)
+    .then(res=>res.json())
+    .then((data)=>{
+      setTaskViewItem(data)
+   })
+  }, [])
+
+  console.log(taskId)
+  console.log(taskViewItem)
+  console.log(taskViewItem.title)
+  console.log(taskViewItem.description)
+  console.log(taskViewItem.id)
+  console.log(taskViewItem.due_date)
+  console.log(taskViewItem.user_id)
+  console.log(taskViewItem.project_id)
+  console.log(taskViewItem.status)
+  console.log(taskViewItem.priority)
   
 const { currentColor } = useStateContext();
   return (
@@ -19,7 +39,7 @@ const { currentColor } = useStateContext();
            h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repeat bg-cover bg-center">
             <div className="flex justify-between items-center">
               <div>
-                <p className="font-bold text-gray-400">Earnings</p>
+                <p className="font-bold text-gray-400">{taskViewItem.title}</p>
                 <p className= "text-2xl">$63,448.78</p>
 
               </div>
