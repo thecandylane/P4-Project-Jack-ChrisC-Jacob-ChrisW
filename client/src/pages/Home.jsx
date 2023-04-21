@@ -1,6 +1,7 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import { BsCurrencyDollar } from 'react-icons/bs';
 import { GoPrimitiveDot } from 'react-icons/go';
+import { BiTask } from 'react-icons/bi'
 
 import { Stacked, Pie, Button, SparkLine } from '../components';
 
@@ -11,13 +12,14 @@ import { useNavigate } from 'react-router-dom';
 const Home = () => {
   const { currentColor } = useStateContext();
   const navigate = useNavigate()
+  const [currentUser, setCurrentUser] = useState({tasks:[]})
   useEffect(() => {
     fetch('http://localhost:5555/@me',{
       'credentials':'include'
     })
     .then(r => {
       if (r.ok){
-      r.json().then(data => console.log(data))
+      r.json().then(data => setCurrentUser(data))
     } else{
       navigate('/')
     }
@@ -25,6 +27,7 @@ const Home = () => {
     })
   },[])
 
+  console.log(currentUser.tasks)
 
 
 
@@ -37,52 +40,38 @@ const Home = () => {
            h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repeat bg-cover bg-center">
             <div className="flex justify-between items-center">
               <div>
-                <p className="font-bold text-gray-400">Earnings</p>
-                <p className= "text-2xl">$63,448.78</p>
+                <p className="font-bold text-gray-400"></p>
+                <p className= "text-2xl">{currentUser.username}</p>
 
               </div>
 
             </div>
             <div className="mt-6">
-              <Button 
-              color="white"
-              bgColor={currentColor}
-              text="Download"
-              borderRadius="10px"
-              size="md"
-
-              />
+              <button type="button" onClick={()=> navigate('/users')} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2" >Users List</button>
 
 
             </div>
 
         </div>
         <div className="flex m-3 flex-wrap justify-center gap-1 items-center">
-          {earningData.map((item) => (
+          {currentUser.tasks.map((item) => (
             <div
-            key={item.title}
+            key={item.id}
             className="bg-white
             dark:text-gray-200
             dark:bg-secondary-dark-bg
             md:w-56
             p-4 pt-9 rounded-2xl"
             >
-              <button type="button" style={{color:item.iconColor, backgroundColor: item.iconBg}}
-              className="text-2xl opacity-0.9 rounded-full p-4 hover:drop-shadow-xl">
-              {item.icon}
+            <div>
+              <button type="button"className="bg-white border text-5xl opacity-0.9 rounded-full p-4 hover:drop-shadow-xl mr-10">
+                <BiTask/>
 
 
               </button>
-              <p className='mt-3'>
-                <span className="text-lg font-semibold">
-                  {item.amount}
-                </span>
-                <span className={`text-sm text-${item.pcColor} ml-2`}>
-                  {item.percentage}
-                </span>
+            </div>
 
-              </p>
-              <p className="text-sm text-gray-400 mt-1">{item.title}</p>
+              <p className="text-sm text-black mt-1">{item.title}</p>
 
             </div>
 
@@ -129,17 +118,7 @@ const Home = () => {
 
               </div>
               <div className='mt-5'>
-                <SparkLine
-                  currentColor ={currentColor}
-                  id="line-sparkline"
-                  type="Line"
-                  height="80px"
-                  width="250px"
-                  data={SparklineAreaData}
-                  color={currentColor}
-
-
-                />
+              
 
               </div>
               <div className="mt-10">
@@ -154,8 +133,7 @@ const Home = () => {
 
             </div>
             <div>
-              <Stacked width="320px"
-              height= "360px"/>
+             
 
             </div>
 
