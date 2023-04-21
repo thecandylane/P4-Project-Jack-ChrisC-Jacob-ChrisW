@@ -54,7 +54,7 @@ def make_projects():
 
 def make_tasks():
     Task.query.delete()
-    status_list = ['To Do', 'In Progress', 'testing', 'Done']
+    status_list = ['todo', 'inprogress', 'testing', 'done']
     tasks = []
     for j in range(2):
         for i in range(20):
