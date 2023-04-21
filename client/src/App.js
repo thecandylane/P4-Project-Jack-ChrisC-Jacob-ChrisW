@@ -21,7 +21,7 @@ const App = () => {
     const { activeMenu, themeSettings, setThemeSettings, currentColor, currentMode } = useStateContext();
     const [projectId, setProjectId] = useState()
     const [userId, setUserId]= useState()
-    
+    const [projectViewItem, setProjectViewItem] = useState({name: ''})
 
     // const [user, setUser] = useState({})
 
