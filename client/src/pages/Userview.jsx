@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { BsCurrencyDollar } from 'react-icons/bs';
 import { GoPrimitiveDot } from 'react-icons/go';
 
@@ -7,7 +7,25 @@ import { Stacked, Pie, Button, SparkLine } from '../components';
 import { earningData, SparklineAreaData, ecomPieChartData } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 
-const Userview = () => {
+const Userview = ({userId}) => {
+  const [userViewItem, setUserViewItem] = useState({username: ''})
+  const [tasks, setTasks] = useState([{id: ''}])
+  const [projects, setProjects] = useState([{id: ''}])
+
+  useEffect(()=>{
+    fetch(`http://localhost:5555/users/${userId}`)
+    .then(res=>res.json())
+    .then((data)=>{
+      setUserViewItem(data)
+      setTasks(data.tasks)
+      setProjects(data.projects)
+  })
+  }, [])
+
+console.log(userId)
+console.log(userViewItem)
+console.log(projects)
+console.log(tasks)
   
 const { currentColor } = useStateContext();
   return (

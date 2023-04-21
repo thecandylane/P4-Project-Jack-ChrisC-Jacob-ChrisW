@@ -444,6 +444,11 @@ export const employeesGrid = [
     template: gridEmployeeProfile,
     textAlign: 'Center' },
 
+  { field: 'id',
+    headerText: 'ID',
+    width: '170',
+    textAlign: 'Center',
+  },
   { field: 'username',
     headerText: 'Username',
     width: '170',
