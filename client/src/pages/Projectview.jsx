@@ -13,7 +13,20 @@ const Projectview = ({projectId, projectViewItem, setProjectViewItem}) => {
   const [tasks, setTasks] = useState([{id: ''}])
   const [users, setUsers] = useState([{id: ''}])
   const navigate = useNavigate();
-  
+  const [currentUserId, setCurrentUserId] = useState()
+  useEffect(() => {
+    fetch('http://localhost:5555/@me',{
+      'credentials':'include'
+    })
+    .then(r => {
+      if (r.ok){
+      r.json().then(data => setCurrentUserId(data.id))
+    } else{
+      navigate('/')
+    }
+      
+    })
+  },[])
 
 useEffect(()=>{
   fetch(`http://localhost:5555/projects/${projectId}`)
@@ -25,9 +38,14 @@ useEffect(()=>{
   })
 },[])
 
+
+
+// console.log(projectViewItem)
+
 // console.log(projectId)
 // console.log(projectViewItem.tasks)
 // console.log(tasks)
+// console.log(users[0].username)
 // console.log(users[0].username)
 
 // console.log(projectViewItem.name)
@@ -45,6 +63,20 @@ const { currentColor } = useStateContext();
     .then(data => data)
     , [])
   // console.log(params.id)
+  // console.log(params.id)
+
+  const handleJoinProject = () => {
+    console.log(projectViewItem)
+    const {id} = projectViewItem
+    console.log(id)
+    fetch('http://localhost:5555/user_projects', {
+      method:"POST",
+      headers:{
+        "Content-Type":'application/json'
+      },
+      body:JSON.stringify({id, currentUserId})
+    })
+  }
 
   return (
     <div className="mt-12">
@@ -64,6 +96,7 @@ const { currentColor } = useStateContext();
             <div className="mt-6">
               <button type="button" onClick={()=> navigate('/projects')} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2" >Projects List</button>
               <button type="button" onClick={()=> navigate('/tasks')} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" >Tasks List</button>
+              <button type="button" onClick={handleJoinProject} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" >Join Project</button>
 
 
             </div>
