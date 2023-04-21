@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <<<<<<<< HEAD:server/migrations/versions/8ac00e480aa1_new_seed.py
 """new seed
 
@@ -5,12 +6,25 @@ Revision ID: 8ac00e480aa1
 Revises: 
 Create Date: 2023-04-21 10:08:40.451105
 ========
+=======
+<<<<<<<< HEAD:server/migrations/versions/4875fa29c1e5_fucking_jack.py
+>>>>>>> 0d781cb (fixed project view)
 """fucking jack
 
 Revision ID: 4875fa29c1e5
 Revises: 
 Create Date: 2023-04-21 10:30:24.889484
+<<<<<<< HEAD
 >>>>>>>> origin:server/migrations/versions/4875fa29c1e5_fucking_jack.py
+=======
+========
+"""new seed
+
+Revision ID: 8ac00e480aa1
+Revises: 
+Create Date: 2023-04-21 10:08:40.451105
+>>>>>>>> 6e6d6b9 (fixed project view):server/migrations/versions/8ac00e480aa1_new_seed.py
+>>>>>>> 0d781cb (fixed project view)
 
 """
 from alembic import op
@@ -18,11 +32,19 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
+<<<<<<< HEAD
 <<<<<<<< HEAD:server/migrations/versions/8ac00e480aa1_new_seed.py
 revision = '8ac00e480aa1'
 ========
 revision = '4875fa29c1e5'
 >>>>>>>> origin:server/migrations/versions/4875fa29c1e5_fucking_jack.py
+=======
+<<<<<<<< HEAD:server/migrations/versions/4875fa29c1e5_fucking_jack.py
+revision = '4875fa29c1e5'
+========
+revision = '8ac00e480aa1'
+>>>>>>>> 6e6d6b9 (fixed project view):server/migrations/versions/8ac00e480aa1_new_seed.py
+>>>>>>> 0d781cb (fixed project view)
 down_revision = None
 branch_labels = None
 depends_on = None
