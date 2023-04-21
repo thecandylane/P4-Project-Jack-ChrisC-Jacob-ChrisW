@@ -9,6 +9,7 @@ import { useStateContext } from '../contexts/ContextProvider';
 
 const Projectview = ({projectId}) => {
   const [projectViewItem, setProjectViewItem] = useState({name: ""})
+  const [tasks, setTasks] = useState([{id: ''}])
   
 
 useEffect(()=>{
@@ -16,11 +17,14 @@ useEffect(()=>{
   .then(res=>res.json())
   .then((data)=>{
     setProjectViewItem(data)
+    setTasks(data.tasks)
   })
 },[])
 
 console.log(projectId)
-console.log(projectViewItem)
+console.log(projectViewItem.tasks)
+console.log(tasks)
+
 // console.log(projectViewItem.name)
 // console.log(projectViewItem.description)
 // console.log(projectViewItem.id)
@@ -37,8 +41,8 @@ const { currentColor } = useStateContext();
            h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repeat bg-cover bg-center">
             <div className="flex justify-between items-center">
               <div>
-                <p className="font-bold text-gray-400">{projectViewItem.name}</p>
-                <p className= "text-2xl">$63,448.78</p>
+                <p className="font-bold text-gray-400">Project</p>
+                <p className= "text-2xl font-bold">{projectViewItem.name}</p>
 
               </div>
 
@@ -47,7 +51,7 @@ const { currentColor } = useStateContext();
               <Button 
               color="white"
               bgColor={currentColor}
-              text="Download"
+              text="Project List"
               borderRadius="10px"
               size="md"
 
@@ -96,16 +100,27 @@ const { currentColor } = useStateContext();
         <div className="bg-white dark:text-gray-200
         dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780">
           <div className="flex justify-between">
-            <p className="font-semibold text-xl">Revenue Updates</p>
+            <p className="font-semibold text-xl">Task List</p>
             <div className="flex items-center gap-4">
-              <p className="flex items-center gap-2 text-gray-600 hover:drop-shadow-xl">
+              {tasks.map((fuck) => (
+                <div
+                key={fuck.id}
+                className="bg-white
+                dark:text-gray-200
+                dark:bg-secondary-dark-bg
+                md:w-56
+                p-4 pt-9 rounded-2xl"
+                >
+                {fuck.title}  </div>
+              ))}
+              {/* <p className="flex items-center gap-2 text-gray-600 hover:drop-shadow-xl">
                 <span><GoPrimitiveDot /></span>
                 <span>Expense</span>
               </p>
               <p className="flex items-center gap-2 text-green-200 hover:drop-shadow-xl">
                 <span><GoPrimitiveDot /></span>
                 <span>Budget</span>
-              </p>
+              </p> */}
 
             </div>
 
@@ -113,11 +128,13 @@ const { currentColor } = useStateContext();
           <div className="mt-10 flex gap flex-wrap justify-center">
             <div className="border-r-1 border-color m-4 pr-10">
               <div>
-                <p>
-                  <span className="text-3xl font-semibold">$93,438</span>
-                  <span className="p-1.5 hover:drop-shadow-xl cursor-pointer rounded-full text-white bg-green-400 ml-3 text-xs">23%</span>
+                <p className="text-3xl font-semibold">
+                  {/* {projectViewItem.tasks} */}
+                
+                  {/* <span className="text-3xl font-semibold">$93,438</span>
+                  <span className="p-1.5 hover:drop-shadow-xl cursor-pointer rounded-full text-white bg-green-400 ml-3 text-xs">23%</span> */}
                 </p>
-                <p className="text-gray-500 mt-1">Budget</p>
+                {/* <p className="text-gray-500 mt-1">Budget</p>
 
               </div>
               <div className="mt-8">
@@ -125,11 +142,11 @@ const { currentColor } = useStateContext();
                   <span className="text-3xl font-semibold">$48,438</span>
                   
                 </p>
-                <p className="text-gray-500 mt-1">Expense</p>
+                <p className="text-gray-500 mt-1">Expense</p> */}
 
               </div>
               <div className='mt-5'>
-                <SparkLine
+                {/* <SparkLine
                   currentColor ={currentColor}
                   id="line-sparkline"
                   type="Line"
@@ -139,25 +156,25 @@ const { currentColor } = useStateContext();
                   color={currentColor}
 
 
-                />
+                /> */}
 
               </div>
               <div className="mt-10">
                 <Button 
                   color="white"
                   bgColor={currentColor}
-                  text="Download Report"
+                  text="Task List"
                   borderRadius = "10px"
                 />
 
               </div>
 
             </div>
-            <div>
+            {/* <div>
               <Stacked width="320px"
               height= "360px"/>
 
-            </div>
+            </div> */}
 
           </div>
 
