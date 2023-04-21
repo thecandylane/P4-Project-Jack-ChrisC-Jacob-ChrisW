@@ -28,7 +28,7 @@ useEffect(()=>{
 // console.log(projectId)
 // console.log(projectViewItem.tasks)
 // console.log(tasks)
-console.log(users[0].username)
+// console.log(users[0].username)
 
 // console.log(projectViewItem.name)
 // console.log(projectViewItem.description)
@@ -44,7 +44,7 @@ const { currentColor } = useStateContext();
     .then(resp => resp.json())
     .then(data => data)
     , [])
-  console.log(params.id)
+  // console.log(params.id)
 
   return (
     <div className="mt-12">
@@ -62,8 +62,8 @@ const { currentColor } = useStateContext();
 
             </div>
             <div className="mt-6">
-              <button type="button" onclick={()=> navigate('/projects')} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2" >ProjectList</button>
-              <button type="button" onclick={()=> navigate('/projects')} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" >Task List</button>
+              <button type="button" onClick={()=> navigate('/projects')} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2" >ProjectList</button>
+              <button type="button" onClick={()=> navigate('/tasks')} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" >Task List</button>
 
 
             </div>
