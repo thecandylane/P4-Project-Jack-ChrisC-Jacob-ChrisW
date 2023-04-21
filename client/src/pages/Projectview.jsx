@@ -8,8 +8,8 @@ import { BiTask } from 'react-icons/bi'
 import { earningData, SparklineAreaData, ecomPieChartData } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 
-const Projectview = ({projectId}) => {
-  const [projectViewItem, setProjectViewItem] = useState({name: ""})
+const Projectview = ({projectId, projectViewItem, setProjectViewItem}) => {
+  // const [projectViewItem, setProjectViewItem] = useState({name: ""})
   const [tasks, setTasks] = useState([{id: ''}])
   const [users, setUsers] = useState([{id: ''}])
   const navigate = useNavigate();
@@ -62,8 +62,8 @@ const { currentColor } = useStateContext();
 
             </div>
             <div className="mt-6">
-              <button type="button" onClick={()=> navigate('/projects')} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2" >ProjectList</button>
-              <button type="button" onClick={()=> navigate('/tasks')} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" >Task List</button>
+              <button type="button" onClick={()=> navigate('/projects')} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2" >Projects List</button>
+              <button type="button" onClick={()=> navigate('/tasks')} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" >Tasks List</button>
 
 
             </div>
