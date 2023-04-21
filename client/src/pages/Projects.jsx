@@ -15,7 +15,7 @@ const Projects = ({setProjectId}) => {
   const [deleteChange, setDeleteChange] = useState('search')
 
   function handleClick(){
-    navigate('/')
+    navigate('/project-form')
   }
 
   function handleSearchChange(e){
@@ -65,7 +65,7 @@ const Projects = ({setProjectId}) => {
           <input type='radio' name='searchOrDelete'onChange={handleDeleteChange}></input>
           <label> delete</label>
           <button type='submit'>Submit</button>
-          <button type='submit' onClick={handleClick}>New Task</button>
+          <button  onClick={handleClick}>New Project</button>
         </div>
       </form>
       <GridComponent

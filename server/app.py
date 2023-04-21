@@ -252,7 +252,9 @@ class Tasks(Resource):
                 description = data['description'],
                 status = data ['status'],
                 priority = data['priority'],
-                due_date = data['due_date']
+                due_date = data['due_date'],
+                user_id = data['user_id'],
+                project_id = data['project_id']
             )
             
             db.session.add(tasks)
