@@ -38,14 +38,9 @@ useEffect(()=>{
   })
 },[])
 
-
-
-// console.log(projectViewItem)
-
 // console.log(projectId)
 // console.log(projectViewItem.tasks)
 // console.log(tasks)
-// console.log(users[0].username)
 // console.log(users[0].username)
 
 // console.log(projectViewItem.name)

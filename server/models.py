@@ -37,7 +37,7 @@ class User(db.Model, SerializerMixin):
     projects = association_proxy('user_projects', 'project')
 
     # serialize rules
-    serialize_rules = ('-created_at', '-updated_at', '-user_projects', '-activities', '-projects')
+    serialize_rules = ('-created_at', '-updated_at', '-user_projects', '-activities')
     # serialize_only = ('id', 'username', 'admin', 'email', 'password')
 
     # validations
