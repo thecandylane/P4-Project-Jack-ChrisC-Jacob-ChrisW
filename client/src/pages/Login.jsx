@@ -33,14 +33,7 @@ export default function Login() {
             console.error('Error fetching data:', error);
         });
     };
-    function handleLogout(){
-        fetch('http://localhost:5555/logout', {
-            method:"POST",
-            credentials: 'include'
-        })
-        .then(r => r.json())
-        .then(data => console.log(data))
-    }
+    
 
     return (
       <div className='grid grid-cols-1 sm:grid-cols-2 h-screen w-full'>
@@ -74,7 +67,7 @@ export default function Login() {
                         <span>REGISTER</span>
                     </Link>
                     </button>
-                    <button onClick={handleLogout}>Logout</button>
+                    {/* <button onClick={handleLogout}>Logout</button> */}
                   
               </form>
           </div>

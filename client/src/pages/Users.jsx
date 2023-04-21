@@ -7,6 +7,22 @@ import { Header } from '../components';
 import { useNavigate } from 'react-router-dom';
 
 const Users = ({setUserId}) => {
+
+  useEffect(() => {
+    fetch('http://localhost:5555/@me', {
+      'credentials': 'include'
+    })
+      .then(r => {
+        if (r.ok) {
+          r.json().then(data => console.log(data), setUser(true))
+        } else {
+          console.log('no one is logged in')
+        }
+
+      })
+  }, [])
+
+  const [user, setUser] = useState()
   const navigate = useNavigate()
   const [userItem, setUserItem]= useState([{}]);
   const [deleteChange, setDeleteChange] = useState('search')
@@ -46,6 +62,7 @@ const Users = ({setUserId}) => {
   return (
     <div className="m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl">
       <Header category = "Page" title="Users" />
+      {user ? 
       <form onSubmit={handleSubmit}>
         <div >
           <input className="border border-black-200 mr-2" name='user' placeholder='Enter Project ID'></input>
@@ -56,6 +73,7 @@ const Users = ({setUserId}) => {
           <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold front-semibold hover:text-white px-4 border border-blue-500 rounded" type='submit'>Submit</button>
         </div>
       </form>
+      : <></>}
       <GridComponent
         
         dataSource={userItem}

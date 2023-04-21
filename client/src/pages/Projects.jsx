@@ -9,8 +9,24 @@ import { customersData, projectsGrid } from '../data/dummy';
 import { Header } from '../components';
 
 const Projects = ({setProjectId}) => {
-  const navigate = useNavigate()
 
+  useEffect(() => {
+    fetch('http://localhost:5555/@me', {
+      'credentials': 'include'
+    })
+      .then(r => {
+        if (r.ok) {
+          r.json().then(data => console.log(data), setUser(true))
+        } else {
+          console.log('no one is logged in')
+        }
+
+      })
+  }, [])
+
+
+  const navigate = useNavigate()
+  const [user, setUser] = useState()
   const [projectItem, setProjectItem]= useState({})
   const [deleteChange, setDeleteChange] = useState('search')
 
@@ -87,7 +103,7 @@ const Projects = ({setProjectId}) => {
       </div> */}
 
       
-      <div>
+      <div>{user ? 
         <form onSubmit={handleSubmit}>
           <div >
             <input className="border border-black-200 mr-2" name='project' placeholder='Enter Project ID'></input>
@@ -99,19 +115,21 @@ const Projects = ({setProjectId}) => {
             <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold front-semibold hover:text-white px-4 border border-blue-500 rounded"  onClick={handleClick}>New Project</button>
           </div>
         </form>
+        :<></>
+        }
       </div>
 
-      <GridComponent
-        
-        dataSource={projectItem}
-        allowPaging
-        allowSorting
-        toolbar={['Delete', 'Search']}
-        editSettings={{ allowDeleting: true, allowEditing: true}}
-        width="auto"
-        
-        // rowSelected={handleRowSelected}
-      >
+        <GridComponent
+          
+          dataSource={projectItem}
+          allowPaging
+          allowSorting
+          toolbar={['Delete', 'Search']}
+          editSettings={user ? { allowDeleting: true, allowEditing: true}:{ allowDeleting: false, allowEditing: false}}
+          width="auto"
+          
+          // rowSelected={handleRowSelected}
+        >
         <ColumnsDirective >
         {projectsGrid.map((item, index) => (
           <ColumnDirective key={index} {...item}/>
